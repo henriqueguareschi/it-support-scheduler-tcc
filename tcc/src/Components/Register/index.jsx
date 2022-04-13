@@ -8,15 +8,15 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const { login } = useUserAuth()
+    const { signUp } = useUserAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
         try {
-            await login(email, password)
-            navigate("/dashboard")
+            await signUp(email, password)
+            navigate("/login")
         } catch (error) {
             setError(error.message)
         }
@@ -43,8 +43,8 @@ export default function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </FormGroup>
-                    <Button color="primary" type="submit" block>
-                        Login
+                    <Button color="primary" type="submit" block >
+                        Register
                     </Button>
                     {error && <Alert variant="danger">{error}</Alert>}
                 </Form>

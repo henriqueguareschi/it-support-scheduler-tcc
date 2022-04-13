@@ -1,11 +1,18 @@
 import React from 'react';
-import Routes from './Routes';
+import Rotas from './Routes';
+import GlobalStyles from './styles/GlobalStyles.ts';
+import HomeNavBar from './Components/HomeNavbar'
+import { UserAuthContextProvider } from './Context/UserAuthContext';
 
 function App() {
   return (
-    <div>
-      <Routes />
-    </div>
+    <>
+      <UserAuthContextProvider>
+        <HomeNavBar />
+        <Rotas />
+        <GlobalStyles />
+      </UserAuthContextProvider>
+    </>
   );
 }
 export default App;
