@@ -1,10 +1,10 @@
 
+import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { useUserAuth } from '../../Context/UserAuthContext';
-import { auth } from '../../firebase-config';
 
 const Dashboard = () => {
-    const { user, logout } = useUserAuth()
+    const { logout } = useUserAuth()
 
     const handleLogOut = async () => {
         try {
@@ -14,14 +14,13 @@ const Dashboard = () => {
         }
     }
 
-    console.log(user)
-
     return (
         <div>
             <h1>
                 Dash
             </h1>
-            <Button onClick={handleLogOut}>Sair</Button>
+            <Link to="/register">Cadastrar novo Técnico</Link>
+            <Button color="primary" onClick={handleLogOut}>Sair</Button>
         </div>
     )
 }

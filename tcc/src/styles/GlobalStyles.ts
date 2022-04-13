@@ -9,8 +9,8 @@ export default createGlobalStyle`
     
     html, body, #root {
         height: 100%;
-        background-color: #222222;
-        color: #E4E4E4;
+        background-color: #222831;
+        color: #EEEEEE;
     }
     
     *, button, input {
@@ -22,4 +22,25 @@ export default createGlobalStyle`
     button {
         cursor: pointer;
     }
+
+    .form-control {
+        background-color: #EEEEEE;
+    }
+
+    .btn-primary {
+        background-color: #045757;
+        border-color: #045757;
+        transition: ease-in-out .5s;
+    }
+
+    .btn-primary:hover {
+        background-color: #088080;
+        border-color: #088080;
+    }
+
+    .btn-primary:focus {
+        background-color: #088080;
+        border-color: #088080;
+    }
+    
 `;

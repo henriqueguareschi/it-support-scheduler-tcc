@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
-import { Container } from "./styles.js";
+import { Container, CenterDiv, OutsideDiv } from "./styles.js";
 import { useUserAuth } from "../../Context/UserAuthContext.js";
+import HomeNavBar from "../HomeNavbar";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -24,31 +25,35 @@ export default function Login() {
 
     return (
         <Container>
-            <div className="Login">
-                <Form onSubmit={handleSubmit}>
-                    <FormGroup controlid="email">
-                        <Label for="Email">Email</Label>
-                        <Input
-                            autoFocus
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </FormGroup>
-                    <FormGroup controlid="password">
-                        <Label>Password</Label>
-                        <Input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </FormGroup>
-                    <Button color="primary" type="submit" block>
-                        Login
-                    </Button>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                </Form>
-            </div>
+            <HomeNavBar />
+            <OutsideDiv>
+                <CenterDiv>
+                    <h4>Acessar Área Técnica</h4>
+                    <Form onSubmit={handleSubmit}>
+                        <FormGroup controlid="email">
+                            <Label for="Email">Email</Label>
+                            <Input
+                                autoFocus
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </FormGroup>
+                        <FormGroup controlid="password">
+                            <Label>Senha</Label>
+                            <Input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </FormGroup>
+                        <Button color="primary" type="submit" block>
+                            Login
+                        </Button>
+                        {error && <Alert color="danger">{error}</Alert>}
+                    </Form>
+                </CenterDiv>
+            </OutsideDiv>
         </Container>
     );
 }
