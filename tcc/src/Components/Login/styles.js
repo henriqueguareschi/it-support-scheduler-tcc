@@ -4,7 +4,7 @@ export const Container = styled.div`
 `;
 
 export const OutsideDiv = styled.div`
-  margin: 0 auto;
+  margin: 100px auto;
   max-width: 500px;
   height: 500px;
   background-color: #393E46;

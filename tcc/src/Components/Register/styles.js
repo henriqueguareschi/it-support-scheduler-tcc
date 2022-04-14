@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  grid-area: CT;
 `;
 
 export const OutsideDiv = styled.div`
-  margin: 0 auto;
+  margin: 50px auto;
   max-width: 500px;
   height: 500px;
   background-color: #393E46;

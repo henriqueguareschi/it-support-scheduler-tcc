@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container } from './styles';
 
-const Aside = () => {
+const ContentHeader = () => {
     return (
         <Container>
-            <h1>Aside</h1>
+            <h4>ContentHeader</h4>
         </Container>
     )
 }
 
-export default Aside
+export default ContentHeader

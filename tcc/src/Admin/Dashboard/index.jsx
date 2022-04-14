@@ -1,27 +1,12 @@
 
-import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
-import { useUserAuth } from '../../Context/UserAuthContext';
+import { Container } from './styles'
 
 const Dashboard = () => {
-    const { logout } = useUserAuth()
-
-    const handleLogOut = async () => {
-        try {
-            await logout()
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
 
     return (
-        <div>
-            <h1>
-                Dash
-            </h1>
-            <Link to="/register">Cadastrar novo Técnico</Link>
-            <Button color="primary" onClick={handleLogOut}>Sair</Button>
-        </div>
+        <Container>
+            <h4>Dashboard</h4>
+        </Container>
     )
 }
 

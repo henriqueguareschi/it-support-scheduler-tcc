@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container } from './styles';
 
-const Layout = () => {
+const MainHeader = () => {
     return (
         <Container>
-            <h1>Layout</h1>
+            <h4>MainHeader</h4>
         </Container>
     )
 }
 
-export default Layout
+export default MainHeader

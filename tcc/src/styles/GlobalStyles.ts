@@ -27,6 +27,10 @@ export default createGlobalStyle`
         background-color: #EEEEEE;
     }
 
+    .form-control:focus {
+        background-color: #EEEEEE;
+    }
+
     .btn-primary {
         background-color: #045757;
         border-color: #045757;
