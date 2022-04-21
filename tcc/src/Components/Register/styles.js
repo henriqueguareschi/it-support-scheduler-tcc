@@ -6,8 +6,8 @@ export const Container = styled.div`
 
 export const OutsideDiv = styled.div`
   margin: 50px auto;
-  max-width: 500px;
-  height: 500px;
+  max-width: 90%;
+  max-height: 90%;
   background-color: #393E46;
   box-shadow: 0px 2px 3px 0px #393E46;
   border-radius: 10px;

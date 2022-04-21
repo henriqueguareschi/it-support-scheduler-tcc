@@ -34,7 +34,7 @@ export default createGlobalStyle`
     .btn-primary {
         background-color: #045757;
         border-color: #045757;
-        transition: ease-in-out .5s;
+        transition: 0.3s ease-in-out;;
     }
 
     .btn-primary:hover {
@@ -47,4 +47,12 @@ export default createGlobalStyle`
         border-color: #088080;
     }
     
+    .table-dark {
+        --bs-table-bg: #222831;
+        border-radius: 5px;
+    }
+
+    .table-bordered>:not(caption)>* {
+    border-width: 2px 0;
+    }
 `;

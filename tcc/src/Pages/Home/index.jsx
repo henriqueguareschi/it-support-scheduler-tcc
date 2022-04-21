@@ -1,13 +1,25 @@
-import { Container } from "./styles"
-import HomeNavBar from "../../Components/HomeNavbar"
+import { } from "./styles"
+import HomeNavBar from "../../Components/HomeComponents/HomeNavbar"
+import HomeSidebar from "../../Components/HomeComponents/HomeSidebar";
+import { useState } from "react";
+import HeroSection from "../../Components/HomeComponents/HeroSection";
+import InfoSection from "../../Components/HomeComponents/InfoSection";
+import { homeInfo1 } from "../../Components/HomeComponents/InfoSection/data";
 
 const Home = () => {
-    return (
+    const [isOpen, setIsOpen] = useState(false)
 
-        <Container>
-            <HomeNavBar />
-            <h1>Home</h1>
-        </Container>
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
+
+    return (
+        <>
+            <HomeSidebar isOpen={isOpen} toggle={toggle} />
+            <HomeNavBar toggle={toggle} />
+            <HeroSection />
+            <InfoSection {...homeInfo1} />
+        </>
     )
 }
 

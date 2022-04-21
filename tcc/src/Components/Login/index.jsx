@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { Container, CenterDiv, OutsideDiv } from "./styles.js";
 import { useUserAuth } from "../../Context/UserAuthContext.js";
 import HomeNavBar from "../HomeNavbar";
+import HomeSidebar from "../HomeComponents/HomeSidebar";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ export default function Login() {
     return (
         <Container>
             <HomeNavBar />
+            <HomeSidebar />
             <OutsideDiv>
                 <CenterDiv>
                     <h4>Acessar Área Técnica</h4>

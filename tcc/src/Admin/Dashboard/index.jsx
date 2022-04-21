@@ -1,11 +1,11 @@
-
-import { Container } from './styles'
+import { Container } from 'react-bootstrap';
+import ContentHeader from '../../Components/ContentHeader'
 
 const Dashboard = () => {
 
     return (
         <Container>
-            <h4>Dashboard</h4>
+            <ContentHeader title="Dashboard" />
         </Container>
     )
 }
