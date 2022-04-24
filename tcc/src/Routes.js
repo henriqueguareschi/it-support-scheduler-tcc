@@ -1,8 +1,8 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import Login from "./Components/Login"
+import Login from "./Pages/Login"
 import Home from "./Pages/Home"
-import Register from "./Components/Register"
+import Register from "./Components/AdminComponents/Register"
 import Dashboard from "./Admin/Dashboard/"
 import ProtectedRoute from "./ProtectedRoute"
 import Layout from './Components/Layout'

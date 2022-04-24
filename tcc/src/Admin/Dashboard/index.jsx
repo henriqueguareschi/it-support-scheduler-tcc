@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import ContentHeader from '../../Components/ContentHeader'
+import ContentHeader from '../../Components/AdminComponents/ContentHeader'
 
 const Dashboard = () => {
 

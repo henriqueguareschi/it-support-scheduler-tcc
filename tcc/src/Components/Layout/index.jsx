@@ -1,8 +1,8 @@
 
 import { Grid } from './styles'
-import MainHeader from '../MainHeader'
-import Content from '../Content'
-import Aside from '../Aside'
+import MainHeader from '../AdminComponents/MainHeader'
+import Content from '../AdminComponents/Content'
+import Aside from '../AdminComponents/Aside'
 
 const Layout = ({ children }) => {
 

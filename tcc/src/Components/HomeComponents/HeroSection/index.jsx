@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, HeroBg, ImgBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight } from './styles'
+import { Container, HeroBg, ImgBg, HeroContent, H1, P, BtnWrapper, ArrowForward, ArrowRight } from './styles'
 import Img from '../../../Assets/img.jpg'
 import { Button } from '../../../styles/Button'
 
@@ -16,11 +16,11 @@ const HeroSection = () => {
                 <ImgBg src={Img} />
             </HeroBg>
             <HeroContent>
-                <HeroH1>HG Suporte Técnico</HeroH1>
-                <HeroP>Agende um atendimento remoto ou presencial agora mesmo</HeroP>
-                <HeroBtnWrapper>
+                <H1>HG Suporte Técnico</H1>
+                <P>Agende um atendimento remoto ou presencial agora mesmo</P>
+                <BtnWrapper>
                     <Button to="call" onMouseEnter={onHover} onMouseLeave={onHover} primary="true" dark="true">Solicitar Chamado {hover ? <ArrowForward /> : <ArrowRight />} </Button>
-                </HeroBtnWrapper>
+                </BtnWrapper>
             </HeroContent>
         </Container>
     )

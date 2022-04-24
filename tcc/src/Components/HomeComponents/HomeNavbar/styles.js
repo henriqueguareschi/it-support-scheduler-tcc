@@ -29,7 +29,7 @@ export const NavbarContainer = styled.div`
     max-width: 1100px;
 `;
 
-export const NavLogo = styled(LinkR)`
+export const Logo = styled(LinkR)`
     color: #fff;
     justify-self: flex-start;
     cursor: pointer;
@@ -61,7 +61,7 @@ export const MobileIcon = styled.div`
     }
 `;
 
-export const NavMenu = styled.ul`
+export const Menu = styled.ul`
     display: flex;
     align-items: center;
     list-style: none;

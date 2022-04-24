@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, MenuContainer, LinkLine, Header } from './styles';
 import { Link } from 'react-router-dom';
-import { useUserAuth } from '../../Context/UserAuthContext.js'
+import { useUserAuth } from '../../../Context/UserAuthContext.js'
 import { Divider } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';

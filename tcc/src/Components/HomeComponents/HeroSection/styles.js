@@ -54,7 +54,7 @@ export const HeroContent = styled.div`
     align-items: center;
 `;
 
-export const HeroH1 = styled.h1`
+export const H1 = styled.h1`
     color: #EEEEEE;
     font-size: 48px;
     text-align: center;
@@ -69,7 +69,7 @@ export const HeroH1 = styled.h1`
     }
 `;
 
-export const HeroP = styled.p`
+export const P = styled.p`
     margin-top: 24px;
     color: #EEEEEE;
     font-size: 24px;
@@ -85,7 +85,7 @@ export const HeroP = styled.p`
     }
 `;
 
-export const HeroBtnWrapper = styled.div`
+export const BtnWrapper = styled.div`
     margin-top: 32px;
     display: flex;
     flex-direction: column;

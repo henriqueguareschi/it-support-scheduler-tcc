@@ -1,6 +1,6 @@
 import { TableArea } from './styles'
-import { Table, Container, Row, Col } from 'react-bootstrap'
-import ContentHeader from '../../Components/ContentHeader'
+import { Table, Container, Row } from 'react-bootstrap'
+import ContentHeader from '../../Components/AdminComponents/ContentHeader'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
 import { collection, getDocs } from 'firebase/firestore'

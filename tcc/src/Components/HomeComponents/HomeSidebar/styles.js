@@ -31,11 +31,11 @@ export const Icon = styled.div`
     outline: none;
 `;
 
-export const SidebarWrapper = styled.div`
+export const Wrapper = styled.div`
     color: #fff;
 `;
 
-export const SidebarMenu = styled.ul`
+export const Menu = styled.ul`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 80px);

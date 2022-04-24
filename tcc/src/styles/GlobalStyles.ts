@@ -32,14 +32,15 @@ export default createGlobalStyle`
     }
 
     .btn-primary {
-        background-color: #045757;
-        border-color: #045757;
-        transition: 0.3s ease-in-out;;
+        background-color: #088080;
+        border-color: #088080;
+        transition: all 0.2s ease-in-out;
     }
 
     .btn-primary:hover {
-        background-color: #088080;
-        border-color: #088080;
+        background-color: #EEEEEE;
+        border-color: #EEEEEE;
+        color: #010606;
     }
 
     .btn-primary:focus {
@@ -55,4 +56,8 @@ export default createGlobalStyle`
     .table-bordered>:not(caption)>* {
     border-width: 2px 0;
     }
+
+    ol, ul {
+    padding-left: 0rem;
+}
 `;
