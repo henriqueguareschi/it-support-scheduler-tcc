@@ -27,6 +27,10 @@ export default createGlobalStyle`
         background-color: #EEEEEE;
     }
 
+    .form-select {
+        background-color: #EEEEEE;
+    }
+
     .form-control:focus {
         background-color: #EEEEEE;
     }
@@ -54,10 +58,25 @@ export default createGlobalStyle`
     }
 
     .table-bordered>:not(caption)>* {
-    border-width: 2px 0;
+        border-width: 2px 0;
     }
 
     ol, ul {
-    padding-left: 0rem;
-}
+        padding-left: 0rem;
+    }
+
+    .callForm {
+        padding: 0px 80px;
+
+        @media screen and (max-width: 1366px) {
+            padding: 0px 20px;
+        }
+    }
+
+    .form-label {
+        margin-top: 10px;
+        margin-bottom: 2px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
 `;

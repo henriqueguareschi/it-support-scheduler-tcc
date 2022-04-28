@@ -45,7 +45,6 @@ export const Card = styled.div`
     border-radius: 10px;
     max-height: 400px;
     padding: 30px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
 
     &:hover {
