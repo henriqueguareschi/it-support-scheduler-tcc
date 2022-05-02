@@ -30,7 +30,7 @@ const Aside = () => {
                 <LinkLine><Link to="/dashboard"><DashboardIcon style={{ marginBottom: '3px', marginRight: '5px' }} />Dashboard</Link></LinkLine>
                 <LinkLine><Link to="/register"><PersonAddAltIcon style={{ marginBottom: '3px', marginRight: '5px' }} />Técnicos</Link></LinkLine>
                 <LinkLine><Link to="/calls"><ListAltIcon style={{ marginBottom: '3px', marginRight: '5px' }} />Chamados</Link></LinkLine>
-                <LinkLine><a href='/login' color="primary" onClick={handleLogOut}><LogoutIcon style={{ marginBottom: '3px', marginRight: '5px' }} />Sair</a></LinkLine>
+                <LinkLine><Link to="/login" onClick={handleLogOut}><LogoutIcon style={{ marginBottom: '3px', marginRight: '5px' }} />Sair</Link></LinkLine>
             </MenuContainer>
 
         </Container>

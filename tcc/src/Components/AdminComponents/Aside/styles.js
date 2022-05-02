@@ -3,7 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
     grid-area: AS;
     background-color: #393E46;
-    box-shadow: 4px 0 10px -3px #393E46;
+    border-right: 1px solid rgba(255, 255, 255, .12);
+
+    position: relative;
+
+    @media(max-width: 600px) {
+        padding-left: 7px;
+        position: fixed;
+        z-index: 2;
+    }
 `;
 
 export const Header = styled.header`

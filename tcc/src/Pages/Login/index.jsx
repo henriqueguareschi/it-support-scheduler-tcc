@@ -36,7 +36,7 @@ export default function Login() {
             <OutsideDiv>
                 <CenterDiv>
                     <h4>Acessar Área Técnica</h4>
-                    <Form onSubmit={handleSubmit}>
+                    <Form>
                         <FormGroup controlid="email">
                             <Label for="Email">Email</Label>
                             <Input
@@ -54,7 +54,7 @@ export default function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </FormGroup>
-                        <Button color="primary" type="submit" block>
+                        <Button color="primary" type="submit" block onClick={handleSubmit}>
                             Login
                         </Button>
                         {error && <Alert color="danger">{error}</Alert>}
