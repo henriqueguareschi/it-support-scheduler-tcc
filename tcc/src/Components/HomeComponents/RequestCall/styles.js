@@ -30,7 +30,6 @@ export const Row = styled.div`
     margin: 0 auto;
     display: grid;
     grid-auto-columns: minmax(auto, 1fr);
-    align-items: center;
     grid-template-areas: 'col1 col2';
     background-color: #393E46;
     border-radius: 10px;
@@ -47,15 +46,23 @@ export const Row = styled.div`
 `;
 
 export const Column1 = styled.div`
-    margin-bottom: 15px;
+    margin-top: 70px;
     padding: 0 15px;
     grid-area: col1;
+
+    @media screen and (max-width: 1100px) {
+        margin-top: 0px;
+    }
 `;
 
 export const Column2 = styled.div`
-    margin-bottom: 15px;
+    margin-top: 70px;
     padding: 0 15px;
     grid-area: col2;
+    
+    @media screen and (max-width: 1100px) {
+        margin-top: 0px;
+    }
 `;
 
 export const H1 = styled.h1`
