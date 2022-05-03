@@ -12,7 +12,7 @@ export const Container = styled.aside`
     display: grid;
     align-items: center;
     left: 0;
-    transition: 0.3s ease-in-out;
+    transition: .3s ease-in-out;
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
 `;

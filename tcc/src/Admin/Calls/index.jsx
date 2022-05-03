@@ -24,31 +24,7 @@ const Calls = () => {
             <ContentHeader title="Chamados" />
             <Row>
                 <TableArea>
-                    <Table responsive="sm" bordered variant="dark">
-                        <thead>
-                            <tr>
-                                <th>Cliente</th>
-                                <th>Descrição</th>
-                                <th>Tipo</th>
-                                <th>Data</th>
-                                <th>Status</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        {clients.map((client) => ((
-                            <tbody>
-                                <tr>
-                                    <td>{client.nome}</td>
-                                    <td>{client.chamado.descricao}</td>
-                                    <td>{client.chamado.tipo}</td>
-                                    <td>{client.chamado.data}</td>
-                                    <td>{client.chamado.status}</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>)
-                        ))}
 
-                    </Table>
                 </TableArea>
             </Row>
         </Container>
