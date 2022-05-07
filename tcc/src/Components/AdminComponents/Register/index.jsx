@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { Container, CenterDiv, OutsideDiv } from "./styles.js";
 import { useUserAuth } from "../../../Context/UserAuthContext";
@@ -9,14 +8,12 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const { signUp } = useUserAuth()
-    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
         try {
             await signUp(email, password)
-            navigate("/login")
         } catch (error) {
             setError(error.message)
         }

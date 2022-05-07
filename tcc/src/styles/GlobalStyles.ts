@@ -79,4 +79,11 @@ export default createGlobalStyle`
         font-size: 1rem;
         font-weight: 500;
     }
+
+    .card {
+        background-color: #4B5D67;
+        width: 20rem;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
 `;

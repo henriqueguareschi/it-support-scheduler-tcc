@@ -2,7 +2,7 @@
 import { Grid } from './styles'
 import MainHeader from '../AdminComponents/MainHeader'
 import Content from '../AdminComponents/Content'
-import Aside from '../AdminComponents/Aside'
+import DrawerMenu from '../AdminComponents/Drawer'
 
 const Layout = ({ children }) => {
 
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     return (
         <Grid>
             <MainHeader />
-            <Aside />
+            <DrawerMenu />
             <Content>
                 {children}
             </Content>
