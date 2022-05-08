@@ -2,8 +2,10 @@ import { Container, CardArea, ButtonsDiv } from './styles'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import React from 'react'
-import EditIcon from '@mui/icons-material/Edit';
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const Cards = ({ calls }) => {
     return (
@@ -12,15 +14,17 @@ const Cards = ({ calls }) => {
                 {calls.map(call => (
                     <Card key={call.clientes.nome}>
                         <Card.Body>
-                            <Card.Title>{call.clientes.nome}</Card.Title>
+                            <Card.Title title={call.clientes.nome}><h6>Cliente: {capitalizeFirstLetter(call.clientes.nome)}</h6></Card.Title>
                             <Card.Text>
-                                {call.descricao}
+                                <p>Atendimento {capitalizeFirstLetter(call.forma_atendimento)} {call.forma_atendimento === "remoto" ? `(${capitalizeFirstLetter(call.software)})` : null}</p>
+                                <p>{capitalizeFirstLetter(call.descricao)}</p>
                             </Card.Text>
-                            <ButtonsDiv>
-                                <Button variant="primary">Detalhes</Button>
-                                <EditIcon />
-                            </ButtonsDiv>
                         </Card.Body>
+                        <Card.Footer>
+                            <ButtonsDiv>
+                                <Button variant="primary">Editar</Button>
+                            </ButtonsDiv>
+                        </Card.Footer>
                     </Card>
                 ))}
             </CardArea>

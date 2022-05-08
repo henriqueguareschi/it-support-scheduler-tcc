@@ -83,7 +83,18 @@ export default createGlobalStyle`
     .card {
         background-color: #4B5D67;
         width: 20rem;
+        height: 12rem;
         margin-right: 20px;
         margin-bottom: 20px;
+        font-size: 15px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;;
+
+        .card-text {
+            > p {
+                margin-bottom: 2px;
+            }
+        }
     }
 `;
