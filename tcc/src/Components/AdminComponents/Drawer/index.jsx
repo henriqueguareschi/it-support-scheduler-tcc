@@ -49,9 +49,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function DrawerMenu() {
-    const theme = useTheme();
+    const theme = useTheme()
+    const maxWidth = 768
     const { innerWidth } = useInnerSize()
-    const [open, setOpen] = React.useState(innerWidth > 600);
+    const [open, setOpen] = React.useState(innerWidth > maxWidth);
 
     const { logout } = useUserAuth()
 
@@ -71,7 +72,7 @@ export default function DrawerMenu() {
         setOpen(false);
     };
 
-    React.useEffect(() => setOpen(innerWidth > 600), [innerWidth])
+    React.useEffect(() => setOpen(innerWidth > maxWidth), [innerWidth])
 
     return (
         <Container>
