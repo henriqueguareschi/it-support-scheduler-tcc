@@ -15,15 +15,14 @@ import React from 'react'
 const Calls = () => {
     const [calls, setCalls] = useState([])
     const [value, setValue] = React.useState("pending");
-    const callsCollectionRef = collection(db, "chamados")
+    console.log(calls, "calls")
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-
-
     useEffect(() => {
+        const callsCollectionRef = collection(db, "chamados")
         const getCalls = async () => {
             const data = await getDocs(callsCollectionRef)
             setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
@@ -44,22 +43,22 @@ const Calls = () => {
                     </TabList>
                     <TabPanel value="pending">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls} />
+                            <Cards calls={calls.filter(c => c.status === "pendente")} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="attendance">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls} />
+                            <Cards calls={calls.filter(c => c.status === "em atendimento")} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="finished">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls} />
+                            <Cards calls={calls.filter(c => c.status === "finalizado")} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="canceled">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls} />
+                            <Cards calls={calls.filter(c => c.status === "cancelado")} />
                         </Row>
                     </TabPanel>
                 </TabContext>

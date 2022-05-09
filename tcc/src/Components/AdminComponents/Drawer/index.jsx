@@ -1,3 +1,4 @@
+import { MenuContainer, LinkLine, Container, TitleHeader } from './styles'
 import * as React from 'react';
 import { styled, useTheme, } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -11,13 +12,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { MenuContainer, LinkLine, Container, TitleHeader } from './styles'
 import { Link } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useUserAuth } from '../../../Context/UserAuthContext.js'
+import useInnerSize from '../../../Hooks/useInnerSize';
 
 const drawerWidth = 240;
 
@@ -49,7 +50,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function DrawerMenu() {
     const theme = useTheme();
-    const [open, setOpen] = React.useState(true);
+    const { innerWidth } = useInnerSize()
+    const [open, setOpen] = React.useState(innerWidth > 600);
 
     const { logout } = useUserAuth()
 
@@ -69,6 +71,7 @@ export default function DrawerMenu() {
         setOpen(false);
     };
 
+    React.useEffect(() => setOpen(innerWidth > 600), [innerWidth])
 
     return (
         <Container>
