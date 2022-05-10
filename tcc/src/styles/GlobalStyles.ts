@@ -97,4 +97,8 @@ export default createGlobalStyle`
             }
         }
     }
+
+    .card-title {
+        font-size: 16px;
+    }
 `;
