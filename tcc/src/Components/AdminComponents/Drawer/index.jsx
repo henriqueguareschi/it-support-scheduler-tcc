@@ -50,7 +50,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function DrawerMenu() {
     const theme = useTheme()
-    const maxWidth = 768
+    const maxWidth = 600
     const { innerWidth } = useInnerSize()
     const [open, setOpen] = React.useState(innerWidth > maxWidth);
 

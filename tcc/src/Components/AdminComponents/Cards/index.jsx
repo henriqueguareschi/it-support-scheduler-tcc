@@ -1,10 +1,14 @@
-import { Container, CardArea, ButtonsDiv } from './styles'
+import { Container, CardArea, ButtonsDiv, CallType, CallDesc, DateDiv } from './styles'
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Tooltip } from '@mui/material';
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import React from 'react'
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { Tooltip } from '@mui/material';
+import CallDetailModal from '../CallDetailModal';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -21,29 +25,43 @@ const copyLink = (number) => {
 }
 
 const Cards = ({ calls }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [selectedCall, setSelectedCall] = React.useState()
+
+    const toggle = (selectedCall) => {
+        setSelectedCall(selectedCall)
+        setIsOpen(!isOpen)
+    }
+
     return (
         <Container>
             <CardArea>
                 {calls.map(call => (
-                    <Card key={call.clientes.nome}>
-                        <Card.Body>
-                            <Card.Title title={call.clientes.nome}><AssignmentIndIcon style={{ fontSize: '20px', paddingBottom: '2px' }} /> {capitalizeFirstLetter(call.clientes.nome)}</Card.Title>
-                            <span>Atendimento {capitalizeFirstLetter(call.forma_atendimento)} {call.forma_atendimento === "remoto" ? `(${capitalizeFirstLetter(call.software)})` : null}</span>
-                            <p>{capitalizeFirstLetter(call.descricao)}</p>
-                        </Card.Body>
-                        <Card.Footer>
-                            <ButtonsDiv>
-                                <Button variant="primary">Editar</Button>
-                                <Tooltip title="Copiar link do WhatsApp do cliente" arrow>
-                                    <Button className='btnWhats' onClick={() => copyLink(call.clientes.telefone)}>
-                                        <WhatsAppIcon />
-                                    </Button>
-                                </Tooltip>
-                            </ButtonsDiv>
-                        </Card.Footer>
-                    </Card>
+                    <React.Fragment key={call.id}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title title={call.clientes.nome}><AssignmentIndIcon style={{ fontSize: '20px', paddingBottom: '2px' }} /> {capitalizeFirstLetter(call.clientes.nome)}</Card.Title>
+                                <CallType>Atendimento {capitalizeFirstLetter(call.forma_atendimento)} {call.forma_atendimento === "remoto" ? `(${capitalizeFirstLetter(call.software)})` : null}</CallType>
+                                <CallDesc>{capitalizeFirstLetter(call.descricao)}</CallDesc>
+                                <DateDiv title='Data do chamado'><CalendarMonthIcon />{call.data}</DateDiv>
+                            </Card.Body>
+                            <Card.Footer>
+                                <ButtonsDiv>
+                                    <Button variant="primary" onClick={() => toggle(call.id)}><SettingsIcon /></Button>
+                                    <Tooltip title="Copiar link do WhatsApp do cliente" arrow>
+                                        <Button className='btnWhats' onClick={() => copyLink(call.clientes.telefone)}>
+                                            <WhatsAppIcon />
+                                        </Button>
+                                    </Tooltip>
+                                </ButtonsDiv>
+                            </Card.Footer>
+                        </Card>
+
+                        <CallDetailModal isOpen={isOpen} toggle={toggle} selectedCall={selectedCall} calls={calls} />
+                    </React.Fragment>
                 ))}
             </CardArea>
+
         </Container>
     )
 }

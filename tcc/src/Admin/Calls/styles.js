@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const ContentArea = styled.div`
     width: 100%;
-    height: 90%;
+    height: 70vh;
     margin-top: 2rem;
     background-color: #393E46;
     border-radius: 5px;
@@ -32,8 +32,32 @@ export const ContentArea = styled.div`
     }
 
     .MuiTabPanel-root {
-        height: 93%;
+        height: 90%;
         width: 100%;
+        overflow-y: auto;
+
+        ::-webkit-scrollbar {
+                width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            padding-right: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6e8591;
+            border-radius: 5px;
+        }
+
+        .MuiTimelineDot-root {
+            box-shadow: none;
+        }
+
+        .MuiTimelineDot-defaultGrey {
+            background-color: rgba(255, 72, 114, .18);
+            width: 55px;
+            height: 55px;
+        }
     }
 
     .css-1gsv261 {

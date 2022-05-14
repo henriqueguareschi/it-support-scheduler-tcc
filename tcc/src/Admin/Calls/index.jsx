@@ -14,8 +14,7 @@ import React from 'react'
 
 const Calls = () => {
     const [calls, setCalls] = useState([])
-    const [value, setValue] = React.useState("pending");
-    console.log(calls, "calls")
+    const [value, setValue] = useState("pending");
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -34,8 +33,8 @@ const Calls = () => {
         <Container>
             <ContentHeader title="Chamados" />
             <ContentArea>
-                <TabContext value={value}>
-                    <TabList onChange={handleChange}>
+                <TabContext value={value} >
+                    <TabList onChange={handleChange} variant="scrollable" allowScrollButtonsMobile>
                         <Tab label="Pendentes" value="pending" />
                         <Tab label="Em Atendimento" value="attendance" />
                         <Tab label="Concluídos" value="finished" />

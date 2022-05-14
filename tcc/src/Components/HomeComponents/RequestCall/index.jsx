@@ -7,6 +7,8 @@ import MuiAlert from '@mui/material/Alert';
 import Form from 'react-bootstrap/Form'
 import React from 'react'
 import PhoneInput from 'react-phone-number-input/input'
+import moment from 'moment'
+
 const RequestCall = () => {
     //Alerta de sucesso
     const [addSuccess, setAddSuccess] = React.useState(false)
@@ -21,6 +23,7 @@ const RequestCall = () => {
     const [address, setAddress] = React.useState('')
     const [district, setDistrict] = React.useState('')
     const [status, setStatus] = React.useState('pendente')
+
 
     function Alert(props) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -44,6 +47,7 @@ const RequestCall = () => {
                 forma_atendimento: attForm,
                 software: software,
                 status: status,
+                data: moment().format("DD/MM/YYYY"),
                 clientes: {
                     email: clientEmail,
                     endereco: address,
