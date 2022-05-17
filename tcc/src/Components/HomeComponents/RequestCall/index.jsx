@@ -40,7 +40,6 @@ const RequestCall = () => {
         if (!problemDesc || !attForm || !status || !clientEmail || !address || !clientName || !phone || !district) {
             setAddError(true)
         }
-
         else {
             await addDoc(callsCollectionRef, {
                 descricao: problemDesc,
@@ -48,6 +47,7 @@ const RequestCall = () => {
                 software: software,
                 status: status,
                 data: moment().format("DD/MM/YYYY"),
+                relatorio: null,
                 clientes: {
                     email: clientEmail,
                     endereco: address,

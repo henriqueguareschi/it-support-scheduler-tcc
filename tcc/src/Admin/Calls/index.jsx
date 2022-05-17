@@ -20,12 +20,14 @@ const Calls = () => {
         setValue(newValue);
     };
 
+    const callsCollectionRef = collection(db, "chamados")
+
+    const getCalls = async () => {
+        const data = await getDocs(callsCollectionRef)
+        setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }
+
     useEffect(() => {
-        const callsCollectionRef = collection(db, "chamados")
-        const getCalls = async () => {
-            const data = await getDocs(callsCollectionRef)
-            setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-        }
         getCalls()
     }, [])
 
@@ -42,22 +44,22 @@ const Calls = () => {
                     </TabList>
                     <TabPanel value="pending">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "pendente")} />
+                            <Cards calls={calls.filter(c => c.status === "pendente")} getCalls={getCalls} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="attendance">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "em atendimento")} />
+                            <Cards calls={calls.filter(c => c.status === "em atendimento")} getCalls={getCalls} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="finished">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "finalizado")} />
+                            <Cards calls={calls.filter(c => c.status === "finalizado")} getCalls={getCalls} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="canceled">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "cancelado")} />
+                            <Cards calls={calls.filter(c => c.status === "cancelado")} getCalls={getCalls} />
                         </Row>
                     </TabPanel>
                 </TabContext>

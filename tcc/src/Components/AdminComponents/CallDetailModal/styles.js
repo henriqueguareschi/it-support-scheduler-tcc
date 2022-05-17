@@ -21,11 +21,18 @@ export const CustomModal = styled(Modal)`
 
     .modal-footer{
         border-color: rgba(0, 0, 0, 0.125);
+        display: flex;
+        justify-content: space-between;
     }
 
     .modal-lg {
         max-width: 70%;
     }
+
+    .form-control {
+        resize: none;
+    }
+
 `;
 
 export const Content = styled.div`
@@ -50,5 +57,29 @@ export const Col2 = styled.div`
 
 export const Line = styled.span`
     padding: 5px;
-    
+`;
+
+export const LeftButtons = styled.div`
+    align-items: left;
+    justify-content: left;
+
+    > svg {
+        font-size: 40px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    > svg:hover {
+        color: #088080;
+        transition: all 0.2s ease-in-out;
+    }
+`;
+
+export const RightButtons = styled.div`
+    align-items: right;
+    justify-content: right;
+
+    > button {
+        margin-left: 20px;
+    }
 `;

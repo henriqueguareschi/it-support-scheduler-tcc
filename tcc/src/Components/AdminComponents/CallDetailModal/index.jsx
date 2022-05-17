@@ -1,19 +1,36 @@
+import { CustomModal, Content, Line, Col1, Col2, LeftButtons, RightButtons } from './styles'
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { ModalBody, ModalFooter, ModalHeader } from 'react-bootstrap'
-import { CustomModal, Content, Line, Col1, Col2 } from './styles'
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { doc, updateDoc } from 'firebase/firestore'
+import { db } from '../../../firebase-config'
+import { Tooltip } from '@material-ui/core'
 import { Button } from 'react-bootstrap'
-import React from 'react'
 import { Form } from 'react-bootstrap'
+import React from 'react'
 
-const CallDetailModal = ({ isOpen, toggle, selectedCall, calls }) => {
+
+const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setCallReport }) => {
+    const [report, setReport] = React.useState()
+
+    const saveReport = async (id) => {
+        const callDoc = doc(db, "chamados", id)
+        const reportField = { relatorio: callReport }
+        await updateDoc(callDoc, reportField)
+        toggle()
+        console.log(reportField, id)
+    }
+
     return (
-        <CustomModal show={isOpen} onHide={toggle} centered size="lg" >
-            <ModalHeader closeButton>
-                <h5>Detalhes do Chamado</h5>
-            </ModalHeader>
-            <ModalBody>
-                <Content>
-                    {calls.filter(c => c.id === selectedCall).map(c => (
-                        <React.Fragment key={c.id}>
+        <CustomModal show={isOpen} centered size="lg" >
+            {calls.filter(c => c.id === selectedCall).map(c => (
+                <React.Fragment key={c.id}>
+                    <ModalHeader >
+                        <h5>Detalhes do Chamado</h5>
+                    </ModalHeader>
+                    <ModalBody>
+                        <Content>
                             <Col1>
                                 <Line>Nome do Cliente: {c.clientes.nome}</Line>
                                 <Line>E-mail: {c.clientes.email}</Line>
@@ -32,14 +49,32 @@ const CallDetailModal = ({ isOpen, toggle, selectedCall, calls }) => {
                                 </Form.Group>
                                 <Form.Group controlId="problemDesc">
                                     <Form.Label>Relatório Técnico</Form.Label>
-                                    <Form.Control as="textarea" rows={5} />
+                                    <Form.Control as="textarea" rows={5} placeholder="Insira aqui a descrição do serviço realizado." value={callReport} onChange={e => setCallReport(e.target.value)} />
                                 </Form.Group>
                             </Col2>
-                        </React.Fragment>
-                    ))}
-                </Content>
-            </ModalBody>
-            <ModalFooter><Button onClick={toggle}>Fechar</Button></ModalFooter>
+
+
+                        </Content>
+                    </ModalBody>
+                    <ModalFooter>
+                        <LeftButtons>
+                            <Tooltip arrow top title="Cancelar chamado">
+                                <HighlightOffIcon />
+                            </Tooltip>
+                            <Tooltip arrow title="Mover para 'Em Atendimento'">
+                                <DirectionsRunIcon />
+                            </Tooltip>
+                            <Tooltip arrow title="Finalizar chamado">
+                                <CheckCircleOutlineIcon />
+                            </Tooltip>
+                        </LeftButtons>
+                        <RightButtons>
+                            <Button onClick={toggle}>Fechar</Button>
+                            <Button onClick={() => saveReport(c.id)}>Salvar</Button>
+                        </RightButtons>
+                    </ModalFooter>
+                </React.Fragment>
+            ))}
         </CustomModal>
     )
 }

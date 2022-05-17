@@ -14,7 +14,7 @@ export const Button = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s ease-in-out;
+    transition: all 1s ease-in-out;
     text-decoration: none;
 
     &:hover {

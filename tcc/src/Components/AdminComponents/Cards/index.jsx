@@ -24,13 +24,16 @@ const copyLink = (number) => {
     document.body.removeChild(el);
 }
 
-const Cards = ({ calls }) => {
+const Cards = ({ calls, getCalls }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedCall, setSelectedCall] = React.useState()
+    const [callReport, setCallReport] = React.useState()
 
-    const toggle = (selectedCall) => {
+    const toggle = (selectedCall, report) => {
         setSelectedCall(selectedCall)
+        setCallReport(report)
         setIsOpen(!isOpen)
+        getCalls()
     }
 
     return (
@@ -47,7 +50,7 @@ const Cards = ({ calls }) => {
                             </Card.Body>
                             <Card.Footer>
                                 <ButtonsDiv>
-                                    <Button variant="primary" onClick={() => toggle(call.id)}><SettingsIcon /></Button>
+                                    <Button variant="primary" onClick={() => toggle(call.id, call.relatorio)}><SettingsIcon /></Button>
                                     <Tooltip title="Copiar link do WhatsApp do cliente" arrow>
                                         <Button className='btnWhats' onClick={() => copyLink(call.clientes.telefone)}>
                                             <WhatsAppIcon />
@@ -57,7 +60,7 @@ const Cards = ({ calls }) => {
                             </Card.Footer>
                         </Card>
 
-                        <CallDetailModal isOpen={isOpen} toggle={toggle} selectedCall={selectedCall} calls={calls} />
+                        <CallDetailModal isOpen={isOpen} selectedCall={selectedCall} calls={calls} toggle={toggle} callReport={callReport} setCallReport={setCallReport} />
                     </React.Fragment>
                 ))}
             </CardArea>
