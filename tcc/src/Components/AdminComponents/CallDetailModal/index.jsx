@@ -9,10 +9,17 @@ import { Tooltip } from '@material-ui/core'
 import { Button } from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
 import React from 'react'
+import { Snackbar } from '@material-ui/core';
+import { Alert } from '@mui/material';
+
 
 
 const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setCallReport }) => {
-    const [report, setReport] = React.useState()
+    const [finishSuccess, setFinishSuccess] = React.useState(false)
+    const [toAttSuccess, setToAttSuccess] = React.useState(false)
+    const [canceledSuccess, setCanceledSuccess] = React.useState(false)
+    const [finishError, setFinishError] = React.useState(false)
+
 
     const saveReport = async (id) => {
         const callDoc = doc(db, "chamados", id)
@@ -21,6 +28,36 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
         toggle()
         console.log(reportField, id)
     }
+
+    const handleStatusChange = async (id, statusType) => {
+        const callDoc = doc(db, "chamados", id)
+        if (statusType === "em atendimento") {
+            const statusField = { status: "em atendimento" }
+            await updateDoc(callDoc, statusField)
+            setToAttSuccess(true)
+        }
+        if (statusType === "cancelado") {
+            const statusField = { status: "cancelado" }
+            await updateDoc(callDoc, statusField)
+            setCanceledSuccess(true)
+        }
+        if (statusType === "finalizado") {
+            if (!callReport) {
+                setFinishError(true)
+            } else {
+                const statusField = { status: "finalizado" }
+                await updateDoc(callDoc, statusField)
+                setFinishSuccess(true)
+            }
+        }
+    }
+
+    const handleClose = () => {
+        setFinishSuccess(false)
+        setFinishError(false)
+        setToAttSuccess(false)
+    }
+
 
     return (
         <CustomModal show={isOpen} centered size="lg" >
@@ -59,13 +96,13 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     <ModalFooter>
                         <LeftButtons>
                             <Tooltip arrow top title="Cancelar chamado">
-                                <HighlightOffIcon />
+                                <HighlightOffIcon onClick={() => handleStatusChange(c.id, "cancelado")} />
                             </Tooltip>
                             <Tooltip arrow title="Mover para 'Em Atendimento'">
-                                <DirectionsRunIcon />
+                                <DirectionsRunIcon onClick={() => handleStatusChange(c.id, "em atendimento")} />
                             </Tooltip>
                             <Tooltip arrow title="Finalizar chamado">
-                                <CheckCircleOutlineIcon />
+                                <CheckCircleOutlineIcon onClick={() => handleStatusChange(c.id, "finalizado")} />
                             </Tooltip>
                         </LeftButtons>
                         <RightButtons>
@@ -75,6 +112,32 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     </ModalFooter>
                 </React.Fragment>
             ))}
+
+            <Snackbar open={finishSuccess} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Chamado finalizado e movido para a aba de Concluídos
+                </Alert>
+            </Snackbar>
+
+            <Snackbar open={toAttSuccess} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Chamado movido para a aba de Atendimento
+                </Alert>
+            </Snackbar>
+
+            <Snackbar open={canceledSuccess} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    O chamado foi cancelado e movido para a aba de Cancelados
+                </Alert>
+            </Snackbar>
+
+            <Snackbar open={finishError} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="error">
+                    É necessário preencher o relatório técnico antes de finalizar o chamado
+                </Alert>
+            </Snackbar>
+
+
         </CustomModal>
     )
 }
