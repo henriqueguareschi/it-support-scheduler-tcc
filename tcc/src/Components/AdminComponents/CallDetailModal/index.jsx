@@ -20,6 +20,9 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
     const [canceledSuccess, setCanceledSuccess] = React.useState(false)
     const [finishError, setFinishError] = React.useState(false)
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
     const saveReport = async (id) => {
         const callDoc = doc(db, "chamados", id)
@@ -58,7 +61,6 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
         setToAttSuccess(false)
     }
 
-
     return (
         <CustomModal show={isOpen} centered size="lg" >
             {calls.filter(c => c.id === selectedCall).map(c => (
@@ -69,14 +71,14 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     <ModalBody>
                         <Content>
                             <Col1>
-                                <Line>Nome do Cliente: {c.clientes.nome}</Line>
-                                <Line>E-mail: {c.clientes.email}</Line>
-                                <Line>Telefone: {c.clientes.telefone}</Line>
-                                <Line>Endereço: {c.clientes.endereco}</Line>
-                                <Line>Bairro: {c.clientes.bairro}</Line>
-                                <Line>Forma de Atendimento: {c.forma_atendimento}</Line>
+                                <Line>Nome do Cliente: {capitalizeFirstLetter(c.clientes.nome)}</Line>
+                                <Line>E-mail: {capitalizeFirstLetter(c.clientes.email)}</Line>
+                                <Line>Telefone: {capitalizeFirstLetter(c.clientes.telefone)}</Line>
+                                <Line>Endereço: {capitalizeFirstLetter(c.clientes.endereco)}</Line>
+                                <Line>Bairro: {capitalizeFirstLetter(c.clientes.bairro)}</Line>
+                                <Line>Forma de Atendimento: {capitalizeFirstLetter(c.forma_atendimento)}</Line>
                                 {c.forma_atendimento === "remoto" ?
-                                    <Line>Software: {c.software}</Line>
+                                    <Line>Software: {capitalizeFirstLetter(c.software)}</Line>
                                     : null}
                             </Col1>
                             <Col2>

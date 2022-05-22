@@ -8,32 +8,39 @@ import { Card } from 'react-bootstrap'
 import React from 'react'
 import CallDetailModal from '../CallDetailModal';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-const copyLink = (number) => {
-    const whatsLink = `https://wa.me/${number.split('@')[0]}`;
-    const el = document.createElement('textarea');
-    el.value = whatsLink;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-}
+import { Snackbar } from '@material-ui/core';
+import { Alert } from '@mui/material';
 
 const Cards = ({ calls, getCalls }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedCall, setSelectedCall] = React.useState()
     const [callReport, setCallReport] = React.useState()
+    const [linkSuccess, setLinkSuccess] = React.useState(false)
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const copyLink = (number) => {
+        const whatsLink = `https://wa.me/${number.split('@')[0]}`;
+        const el = document.createElement('textarea');
+        el.value = whatsLink;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        setLinkSuccess(true)
+    }
 
     const toggle = (selectedCall, report) => {
         setSelectedCall(selectedCall)
         setCallReport(report)
         setIsOpen(!isOpen)
         getCalls()
+    }
+
+    const handleClose = () => {
+        setLinkSuccess(false)
     }
 
     return (
@@ -64,6 +71,12 @@ const Cards = ({ calls, getCalls }) => {
                     </React.Fragment>
                 ))}
             </CardArea>
+
+            <Snackbar open={linkSuccess} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Link copiado!
+                </Alert>
+            </Snackbar>
 
         </Container>
     )

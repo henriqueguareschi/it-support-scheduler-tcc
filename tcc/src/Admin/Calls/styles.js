@@ -17,6 +17,7 @@ export const ContentArea = styled.div`
     text-overflow: ellipsis;
     flex-wrap: wrap;
     display: flex;
+    border-top: 4px solid #088080;
     
     .MuiTab-root {
         color: #EEEEEE;

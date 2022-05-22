@@ -6,10 +6,10 @@ export const Container = styled.div`
 export const OutsideDiv = styled.div`
   margin: 150px auto;
   max-width: 500px;
-  height: 500px;
+  height: 520px;
   background-color: #393E46;
-  box-shadow: 0px 2px 3px 0px #393E46;
   border-radius: 10px;
+  border-top: 4px solid #088080;
 `;
 
 export const CenterDiv = styled.div`

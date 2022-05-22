@@ -7,7 +7,7 @@ export const CustomModal = styled(Modal)`
         border-radius: 10px;
         border: 0;
         color: #EEEEEE;
-        height: 500px;
+        height: 80%;
     }
     
     .modal-title {
@@ -37,9 +37,12 @@ export const CustomModal = styled(Modal)`
 
 export const Content = styled.div`
     display: grid;
-    grid-auto-columns: minmax(auto, 1fr);
+    grid-auto-columns: 1fr 1fr;
     grid-template-areas: 'col1 col2';
-    
+
+    @media(max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const Col1 = styled.div`

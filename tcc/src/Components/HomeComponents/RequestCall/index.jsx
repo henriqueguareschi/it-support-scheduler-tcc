@@ -1,12 +1,12 @@
 import { Container, Wrapper, Row, Column1, Column2, H1, BtnWrapper } from './styles'
 import { collection, addDoc } from 'firebase/firestore'
+import PhoneInput from 'react-phone-number-input/input'
 import { Button } from '../../../styles/Button'
 import { db } from '../../../firebase-config'
 import { Snackbar } from '@material-ui/core'
 import MuiAlert from '@mui/material/Alert';
 import Form from 'react-bootstrap/Form'
 import React from 'react'
-import PhoneInput from 'react-phone-number-input/input'
 import moment from 'moment'
 
 const RequestCall = () => {
