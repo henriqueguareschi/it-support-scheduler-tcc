@@ -1,4 +1,4 @@
-import { MenuContainer, LinkLine, Container, TitleHeader } from './styles'
+import { MenuContainer, LinkLine, Container, TitleHeader, MenuProfileLink } from './styles'
 import * as React from 'react';
 import { styled, useTheme, } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -19,6 +19,10 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useUserAuth } from '../../../Context/UserAuthContext.js'
 import useInnerSize from '../../../Hooks/useInnerSize';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Menu } from '@material-ui/core';
+import MenuItem from '@mui/material/MenuItem';
+import ChangePasswordModal from '../ChangePasswordModal';
 
 const drawerWidth = 240;
 
@@ -50,9 +54,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function DrawerMenu() {
     const theme = useTheme()
-    const maxWidth = 600
     const { innerWidth } = useInnerSize()
+    const maxWidth = 600
     const [open, setOpen] = React.useState(innerWidth > maxWidth);
+    const [anchorElMenu, setAnchorElMenu] = React.useState(null)
+    const [isOpen, setIsOpen] = React.useState(false);
 
     const { logout } = useUserAuth()
 
@@ -72,6 +78,20 @@ export default function DrawerMenu() {
         setOpen(false);
     };
 
+    const handleCloseMenu = () => {
+        setAnchorElMenu(null);
+    };
+
+    const handleClickMenu = (event) => {
+        setAnchorElMenu(event.currentTarget);
+    };
+
+    const togglePasswordModal = () => {
+        setIsOpen(!isOpen)
+    }
+
+    const openPopover = Boolean(anchorElMenu);
+
     React.useEffect(() => setOpen(innerWidth > maxWidth), [innerWidth])
 
     return (
@@ -89,6 +109,25 @@ export default function DrawerMenu() {
                         >
                             <MenuIcon />
                         </IconButton>
+                        <IconButton
+                            className="ProfileMenu"
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="end"
+                            onClick={handleClickMenu}
+                            sx={{ ml: 'auto' }}
+                        >
+                            <AccountCircleIcon />
+                        </IconButton>
+                        <Menu
+                            anchorEl={anchorElMenu}
+                            open={openPopover}
+                            onClose={handleCloseMenu}
+                            style={{ top: '30px' }}
+                        >
+                            <MenuItem onClick={togglePasswordModal}>Trocar Senha</MenuItem>
+                            <MenuItem onClick={handleLogOut}><MenuProfileLink to="/login" className="MenuProfileLink">Sair</MenuProfileLink></MenuItem>
+                        </Menu>
                     </Toolbar>
                 </AppBar>
                 <Drawer
@@ -124,6 +163,8 @@ export default function DrawerMenu() {
 
                 </Drawer>
             </Box>
+
+            <ChangePasswordModal isOpen={isOpen} togglePasswordModal={togglePasswordModal} />
         </Container>
     );
 }

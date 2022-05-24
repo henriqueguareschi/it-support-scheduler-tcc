@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     grid-area: AS;
@@ -14,6 +15,11 @@ export const Container = styled.div`
     .MuiDivider-root {
         background-color: #EEEEEE;
     }
+
+    .ProfileMenu {
+        margin-right: 23px;
+    }
+
 `;
 
 export const MenuContainer = styled.nav`
@@ -60,5 +66,15 @@ export const TitleHeader = styled.div`
         font-weight: bold;
         font-size: 22px;
         color: #EEEEEE;
+    }
+`;
+
+export const MenuProfileLink = styled(Link)`
+    text-decoration: none;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    color: #000000DE;
+
+    &:hover {
+        color: #000000DE;
     }
 `;
