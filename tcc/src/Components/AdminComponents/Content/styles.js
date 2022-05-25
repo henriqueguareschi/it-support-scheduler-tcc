@@ -4,7 +4,6 @@ export const Container = styled.div`
     grid-area: CT;
 
     height: calc(100vh - 64);
-    overflow-y: auto;
 
     ::-webkit-scrollbar {
         width: 10px;

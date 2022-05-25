@@ -62,7 +62,26 @@ export const FormDiv = styled.div`
 
 export const TableDiv = styled.div`
   width: 60%;
+  max-height: 50%;
   margin: 0 auto;
+  overflow-y: auto;
+
+    ::-webkit-scrollbar {
+            width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        padding-right: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #6e8591;
+        border-radius: 5px;
+    }
+
+    .MuiTimelineDot-root {
+        box-shadow: none;
+    }
 
   @media(max-width: 768px) {
     margin-left: 40px;
