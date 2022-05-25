@@ -11,7 +11,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Snackbar } from '@material-ui/core';
 import { Alert } from '@mui/material';
 
-const Cards = ({ calls, getCalls }) => {
+const Cards = ({ calls, getCalls, onSearch }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedCall, setSelectedCall] = React.useState()
     const [callReport, setCallReport] = React.useState()
@@ -46,7 +46,15 @@ const Cards = ({ calls, getCalls }) => {
     return (
         <Container>
             <CardArea>
-                {calls.map(call => (
+                {calls.filter((call) => {
+                    if (onSearch === "") {
+                        return call
+                    } else if (call.clientes.nome.toLowerCase().includes(onSearch.toLowerCase())) {
+                        return call
+                    } else {
+                        return null
+                    }
+                }).map(call => (
                     <React.Fragment key={call.id}>
                         <Card>
                             <Card.Body>

@@ -4,6 +4,11 @@ export const Container = styled.div`
     margin: 0px auto;
     width: 90%;
     height: 90%;
+
+    @media(max-width: 768px) {
+        width: 90%;
+        margin: 0 auto;
+    }
 `;
 
 
@@ -66,4 +71,22 @@ export const ContentArea = styled.div`
         border-color: rgba(238, 238, 238, .2);
     }
 
+`;
+
+export const CallsHeader = styled.div`
+    display: flex;
+
+    .input-group {
+        margin-top: 50px;
+        text-align: left;
+        width: 20%;
+
+        @media(max-width: 1500px) {
+            width: 30%;
+        }
+
+        @media(max-width: 1200px) {
+            width: 40%;
+        }
+    }
 `;

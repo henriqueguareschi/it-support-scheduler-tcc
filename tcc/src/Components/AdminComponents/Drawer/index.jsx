@@ -55,7 +55,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function DrawerMenu() {
     const theme = useTheme()
     const { innerWidth } = useInnerSize()
-    const maxWidth = 600
+    const maxWidth = 768
     const [open, setOpen] = React.useState(innerWidth > maxWidth);
     const [anchorElMenu, setAnchorElMenu] = React.useState(null)
     const [isOpen, setIsOpen] = React.useState(false);
@@ -88,6 +88,7 @@ export default function DrawerMenu() {
 
     const togglePasswordModal = () => {
         setIsOpen(!isOpen)
+        handleCloseMenu()
     }
 
     const openPopover = Boolean(anchorElMenu);

@@ -1,7 +1,7 @@
 import ContentHeader from '../../Components/AdminComponents/ContentHeader'
 import Cards from '../../Components/AdminComponents/Cards'
 import { collection, getDocs } from 'firebase/firestore'
-import { ContentArea, Container } from './styles'
+import { ContentArea, Container, CallsHeader } from './styles'
 import TabContext from '@mui/lab/TabContext'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
@@ -10,11 +10,15 @@ import TabList from '@mui/lab/TabList'
 import { Row } from 'react-bootstrap'
 import Tab from '@mui/material/Tab'
 import React from 'react'
+import { InputGroup } from 'react-bootstrap'
+import SearchIcon from '@mui/icons-material/Search';
+import { FormControl } from 'react-bootstrap'
 
 
 const Calls = () => {
     const [calls, setCalls] = useState([])
     const [value, setValue] = useState("pending");
+    const [search, setSearch] = useState("")
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -33,7 +37,13 @@ const Calls = () => {
 
     return (
         <Container>
-            <ContentHeader title="Chamados" />
+            <CallsHeader>
+                <ContentHeader title="Chamados" />
+                <InputGroup>
+                    <InputGroup.Text><SearchIcon /></InputGroup.Text>
+                    <FormControl className="form-input" onChange={e => setSearch(e.target.value)} value={search} id="input-table" placeholder="Buscar chamado" />
+                </InputGroup>
+            </CallsHeader>
             <ContentArea>
                 <TabContext value={value} >
                     <TabList onChange={handleChange} variant="scrollable" allowScrollButtonsMobile>
@@ -44,22 +54,22 @@ const Calls = () => {
                     </TabList>
                     <TabPanel value="pending">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "pendente")} getCalls={getCalls} />
+                            <Cards calls={calls.filter(c => c.status === "pendente")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="attendance">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "em atendimento")} getCalls={getCalls} />
+                            <Cards calls={calls.filter(c => c.status === "em atendimento")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="finished">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "finalizado")} getCalls={getCalls} />
+                            <Cards calls={calls.filter(c => c.status === "finalizado")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="canceled">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "cancelado")} getCalls={getCalls} />
+                            <Cards calls={calls.filter(c => c.status === "cancelado")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                 </TabContext>
