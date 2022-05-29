@@ -62,14 +62,42 @@ export const Cards = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #088080;
 `;
 
 export const GraphicContainer = styled.div`
     width: 60%;
+    
 `;
 
 export const GraphicArea = styled.div`
     background-color: #393E46;
-    height: 420px;
+    height: 26.25rem;
     border-radius: 10px;
+    border-bottom: 2px solid #088080;
+`;
+
+export const LeftDiv = styled.div`
+    width: 50%;
+    text-align: center;
+    margin: 0 2.5rem;
+
+    > h5, h6 {
+        font-size: 25px;
+    }
+    
+    > h6 {
+        font-weight: bold;
+    }
+`;
+
+export const RightDiv = styled.div`
+    width: 50%;
+    text-align: center;
+
+    > svg {
+        font-size: 80px;
+    }
 `;

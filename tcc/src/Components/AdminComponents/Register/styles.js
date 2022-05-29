@@ -13,7 +13,7 @@ export const OutsideDiv = styled.div`
     background-color: #393E46;
     border-radius: 5px;
     padding: 5px;
-    border-top: 4px solid #088080;
+    border-bottom: 2px solid #088080;
 `;
 
 export const FormDiv = styled.div`

@@ -33,7 +33,7 @@ export const Row = styled.div`
     grid-template-areas: 'col1 col2';
     background-color: #393E46;
     border-radius: 10px;
-    border-top: 4px solid #088080;
+    border-bottom: 2px solid #088080;
 
     @media screen and (max-width: 1100px) {
         grid-template-areas: 'col1 col1' 'col2 col2';
