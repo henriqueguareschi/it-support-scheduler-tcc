@@ -5,6 +5,7 @@ import { Container, CenterDiv, OutsideDiv } from "./styles";
 import { useUserAuth } from "../../Context/UserAuthContext.js";
 import HomeNavBar from "../../Components/HomeComponents/HomeNavbar";
 import HomeSidebar from "../../Components/HomeComponents/HomeSidebar";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const [isOpen, setIsOpen] = useState(false)

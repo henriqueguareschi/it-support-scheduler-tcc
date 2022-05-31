@@ -82,7 +82,7 @@ export default createGlobalStyle`
 
     .card {
         background-color: #4B5D67;
-        width: 20rem;
+        width: 19rem;
         height: 12rem;
         margin-right: 20px;
         margin-bottom: 20px;
@@ -96,6 +96,10 @@ export default createGlobalStyle`
                 margin-bottom: 2px;
             }
         }
+    }
+
+    .card-body {
+        padding: .5rem .5rem;
     }
 
     .card-title {

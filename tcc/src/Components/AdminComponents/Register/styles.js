@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 0px auto;
-  width: 90%;
+  width: 95%;
   height: 90%;
 `;
 
@@ -62,7 +62,7 @@ export const FormDiv = styled.div`
 
 export const TableDiv = styled.div`
   width: 60%;
-  max-height: 50%;
+  max-height: 80%;
   margin: 0 auto;
   overflow-y: auto;
 
