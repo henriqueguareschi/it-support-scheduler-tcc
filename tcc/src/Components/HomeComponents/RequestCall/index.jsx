@@ -125,7 +125,7 @@ const RequestCall = () => {
 
             <Snackbar open={addSuccess} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success">
-                    Chamado criado com sucesso. Em breve você receberá um email de confirmação.
+                    Chamado criado com sucesso.
                 </Alert>
             </Snackbar>
             <Snackbar open={addError} autoHideDuration={6000} onClose={handleClose}>

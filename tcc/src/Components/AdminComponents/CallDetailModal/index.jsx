@@ -97,15 +97,21 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     </ModalBody>
                     <ModalFooter>
                         <LeftButtons>
-                            <Tooltip arrow top title="Cancelar chamado">
-                                <HighlightOffIcon onClick={() => handleStatusChange(c.id, "cancelado")} />
-                            </Tooltip>
-                            <Tooltip arrow title="Mover para 'Em Atendimento'">
-                                <DirectionsRunIcon onClick={() => handleStatusChange(c.id, "em atendimento")} />
-                            </Tooltip>
-                            <Tooltip arrow title="Finalizar chamado">
-                                <CheckCircleOutlineIcon onClick={() => handleStatusChange(c.id, "finalizado")} />
-                            </Tooltip>
+                            {c.status === "cancelado" ? null :
+                                <Tooltip arrow top title="Cancelar chamado">
+                                    <HighlightOffIcon onClick={() => handleStatusChange(c.id, "cancelado")} />
+                                </Tooltip>
+                            }
+                            {c.status === "em atendimento" ? null :
+                                <Tooltip arrow title="Mover para 'Em Atendimento'">
+                                    <DirectionsRunIcon onClick={() => handleStatusChange(c.id, "em atendimento")} />
+                                </Tooltip>
+                            }
+                            {c.status === "finalizado" ? null :
+                                <Tooltip arrow title="Finalizar chamado">
+                                    <CheckCircleOutlineIcon onClick={() => handleStatusChange(c.id, "finalizado")} />
+                                </Tooltip>
+                            }
                         </LeftButtons>
                         <RightButtons>
                             <Button onClick={toggle}>Fechar</Button>

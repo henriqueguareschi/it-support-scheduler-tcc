@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
-import { Container, CenterDiv, OutsideDiv } from "./styles";
+import { Container, CenterDiv, OutsideDiv, StyledLink, LinkDiv } from "./styles";
 import { useUserAuth } from "../../Context/UserAuthContext.js";
 import HomeNavBar from "../../Components/HomeComponents/HomeNavbar";
 import HomeSidebar from "../../Components/HomeComponents/HomeSidebar";
-import { Link } from "react-router-dom";
 
 export default function Login() {
     const [isOpen, setIsOpen] = useState(false)
@@ -58,6 +57,9 @@ export default function Login() {
                         <Button color="primary" type="submit" block onClick={handleSubmit}>
                             Login
                         </Button>
+                        <LinkDiv>
+                            <StyledLink to="/forgot">Esqueci minha senha</StyledLink>
+                        </LinkDiv>
                         {error && <Alert color="danger">{error}</Alert>}
                     </Form>
                 </CenterDiv>

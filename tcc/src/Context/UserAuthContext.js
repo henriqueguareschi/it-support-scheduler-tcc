@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, confirmPasswordReset } from "firebase/auth"
 import { auth } from "../firebase-config";
 import Loading from "../Components/HomeComponents/Loading";
 
@@ -21,6 +21,16 @@ export function UserAuthContextProvider({ children }) {
         return signOut(auth)
     }
 
+    function forgotPassword(email) {
+        return sendPasswordResetEmail(auth, email, {
+            url: 'http://localhost:3000/login'
+        })
+    }
+
+    function resetPassword(oobCode, newPassword) {
+        return confirmPasswordReset(auth, oobCode, newPassword)
+    }
+
     useEffect(() => {
         auth.onAuthStateChanged((currentUser) => {
             setUser(currentUser)
@@ -32,7 +42,7 @@ export function UserAuthContextProvider({ children }) {
         return <Loading type="spinningBubbles" color="#ffffff" />
     }
 
-    return <userAuthContext.Provider value={{ user, signUp, login, logout }}>{children}</userAuthContext.Provider>
+    return <userAuthContext.Provider value={{ user, signUp, login, logout, forgotPassword, resetPassword }}>{children}</userAuthContext.Provider>
 }
 
 export function useUserAuth() {

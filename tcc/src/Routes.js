@@ -7,6 +7,8 @@ import Dashboard from "./Admin/Dashboard/"
 import ProtectedRoute from "./ProtectedRoute"
 import Layout from './Components/Layout'
 import Calls from './Admin/Calls'
+import ForgotPassword from "./Pages/ForgotPassword"
+import ResetPassword from "./Pages/ResetPassword"
 
 const Rotas = () => {
     return (
@@ -17,6 +19,8 @@ const Rotas = () => {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot" element={<ForgotPassword />} />
+            <Route path="/reset" element={<ResetPassword />} />
         </Routes>
     )
 }

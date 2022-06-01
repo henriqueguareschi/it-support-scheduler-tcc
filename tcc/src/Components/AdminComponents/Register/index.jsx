@@ -5,7 +5,7 @@ import { Container, FormDiv, OutsideDiv, TableDiv } from "./styles.js";
 import { useUserAuth } from "../../../Context/UserAuthContext";
 import { collection, addDoc, getDocs } from 'firebase/firestore'
 import ContentHeader from "../ContentHeader/index.jsx";
-import { db } from "../../../firebase-config.js";
+import { db, auth } from "../../../firebase-config.js";
 import moment from "moment";
 import { Snackbar } from '@material-ui/core';
 import { Alert as AlertMaterial } from '@mui/material';
@@ -18,6 +18,7 @@ export default function Login() {
     const [error, setError] = useState("");
     const [techs, setTechs] = useState([])
     const { signUp } = useUserAuth()
+
 
     const handleClose = () => {
         setRegisterSuccess(false)
@@ -35,19 +36,19 @@ export default function Login() {
                 criado_em: moment().format("DD/MM/YYYY")
             })
             setRegisterSuccess(true)
-            getTechnicians()
+            getUsers()
         } catch (error) {
             setError(error.message)
         }
     }
 
-    const getTechnicians = async () => {
+    const getUsers = async () => {
         const data = await getDocs(techCollectionRef)
         setTechs(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
 
     React.useEffect(() => {
-        getTechnicians()
+        getUsers()
     }, [])
 
     return (

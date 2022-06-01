@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 `;
@@ -43,18 +42,3 @@ export const CenterDiv = styled.div`
 
 `;
 
-export const StyledLink = styled(Link)`
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-        color: #0FCFCF;
-    }
-`;
-
-export const LinkDiv = styled.div`
-  margin-top: 20px;
-  text-align: left;
-`;

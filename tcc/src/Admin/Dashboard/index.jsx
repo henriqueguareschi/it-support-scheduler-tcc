@@ -17,10 +17,12 @@ const Dashboard = () => {
     const getCalls = async () => {
         const data = await getDocs(callsCollectionRef)
         setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+
     }
 
     React.useEffect(() => {
         getCalls()
+        console.log(JSON.stringify(calls))
     }, [])
 
     return (
