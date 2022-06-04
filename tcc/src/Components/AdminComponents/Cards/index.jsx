@@ -59,7 +59,7 @@ const Cards = ({ calls, getCalls, onSearch }) => {
                         <Card>
                             <Card.Body>
                                 <Card.Title title={call.clientes.nome}><AssignmentIndIcon style={{ fontSize: '20px', paddingBottom: '2px' }} /> {capitalizeFirstLetter(call.clientes.nome)}</Card.Title>
-                                <CallType>Atendimento {capitalizeFirstLetter(call.forma_atendimento)} {call.forma_atendimento === "remoto" ? `(${capitalizeFirstLetter(call.software)})` : null}</CallType>
+                                <CallType>Atendimento {capitalizeFirstLetter(call.forma_atendimento)} {call.forma_atendimento === "Remoto" ? `(${capitalizeFirstLetter(call.software)})` : null}</CallType>
                                 <CallDesc>{capitalizeFirstLetter(call.descricao)}</CallDesc>
                                 <DateDiv title='Data do chamado'><CalendarMonthIcon />{call.data}</DateDiv>
                             </Card.Body>

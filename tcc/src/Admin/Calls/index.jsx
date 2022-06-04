@@ -54,22 +54,22 @@ const Calls = () => {
                     </TabList>
                     <TabPanel value="pending">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "pendente")} getCalls={getCalls} onSearch={search} />
+                            <Cards calls={calls.filter(c => c.status === "Pendente")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="attendance">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "em atendimento")} getCalls={getCalls} onSearch={search} />
+                            <Cards calls={calls.filter(c => c.status === "Em atendimento")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="finished">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "finalizado")} getCalls={getCalls} onSearch={search} />
+                            <Cards calls={calls.filter(c => c.status === "Finalizado")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                     <TabPanel value="canceled">
                         <Row xs={1} md={2} className="g-4">
-                            <Cards calls={calls.filter(c => c.status === "cancelado")} getCalls={getCalls} onSearch={search} />
+                            <Cards calls={calls.filter(c => c.status === "Cancelado")} getCalls={getCalls} onSearch={search} />
                         </Row>
                     </TabPanel>
                 </TabContext>

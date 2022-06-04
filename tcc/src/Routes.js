@@ -9,6 +9,7 @@ import Layout from './Components/Layout'
 import Calls from './Admin/Calls'
 import ForgotPassword from "./Pages/ForgotPassword"
 import ResetPassword from "./Pages/ResetPassword"
+import VerifyCalls from "./Pages/VerifyCalls"
 
 const Rotas = () => {
     return (
@@ -21,6 +22,7 @@ const Rotas = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPassword />} />
             <Route path="/reset" element={<ResetPassword />} />
+            <Route path="/mycalls" element={<VerifyCalls />} />
         </Routes>
     )
 }

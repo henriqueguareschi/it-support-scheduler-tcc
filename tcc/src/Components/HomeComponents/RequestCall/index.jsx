@@ -14,15 +14,15 @@ const RequestCall = () => {
     const [addSuccess, setAddSuccess] = React.useState(false)
     const [addError, setAddError] = React.useState(false)
     //States do formulário
-    const [attForm, setAttForm] = React.useState('presencial')
-    const [software, setSoftware] = React.useState('teamviewer')
+    const [attForm, setAttForm] = React.useState('Presencial')
+    const [software, setSoftware] = React.useState('Teamviewer')
     const [problemDesc, setProblemDesc] = React.useState('')
     const [clientName, setClientName] = React.useState('')
     const [clientEmail, setClientEmail] = React.useState('')
     const [phone, setPhone] = React.useState('')
     const [address, setAddress] = React.useState('')
     const [district, setDistrict] = React.useState('')
-    const [status, setStatus] = React.useState('pendente')
+    const [status, setStatus] = React.useState('Pendente')
 
 
     function Alert(props) {
@@ -57,7 +57,7 @@ const RequestCall = () => {
                 }
 
             })
-            if (attForm === 'presencial') {
+            if (attForm === 'Presencial') {
                 setSoftware('')
             }
             setAddSuccess(true)
@@ -75,17 +75,17 @@ const RequestCall = () => {
                                 <Form.Label>Forma de atendimento</Form.Label>
                                 <Form.Select aria-label="Tipo de atendimento" value={attForm} onChange={(e) => setAttForm(e.target.value)}>
                                     <option>Selecione a forma de atendimento desejado</option>
-                                    <option value="presencial">Presencial</option>
-                                    <option value="remoto">Remoto</option>
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="Remoto">Remoto</option>
                                 </Form.Select>
                             </Form.Group>
-                            {attForm === "remoto" ?
+                            {attForm === "Remoto" ?
                                 <Form.Group className="callForm" controlId="attType">
                                     <Form.Label>Qual software para acesso remoto você tem em sua máquina?</Form.Label>
                                     <Form.Select aria-label="Tipo de atendimento" value={software} onChange={(e) => setSoftware(e.target.value)}>
                                         <option>Selecione o software</option>
-                                        <option value="teamviewer">Teamviewer</option>
-                                        <option value="anydesk">AnyDesk</option>
+                                        <option value="Teamviewer">Teamviewer</option>
+                                        <option value="Anydesk">Anydesk</option>
                                     </Form.Select>
                                 </Form.Group>
                                 : null}

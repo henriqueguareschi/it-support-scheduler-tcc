@@ -1,5 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import { Nav, Logo, NavbarContainer, MobileIcon, Menu, NavItem, NavLinks, NavBtn, NavBtnLink } from './styles'
+import { Nav, Logo, NavbarContainer, MobileIcon, Menu, NavItem, NavLinks, NavBtn, NavBtnLink, LinkRouter } from './styles'
 import { animateScroll as scroll } from 'react-scroll'
 
 function HomeNavbar({ toggle }) {
@@ -29,6 +29,11 @@ function HomeNavbar({ toggle }) {
                     <Menu>
                         <NavItem>
                             <NavLinks to="call">Solicitar Chamado</NavLinks>
+                        </NavItem>
+                    </Menu>
+                    <Menu>
+                        <NavItem>
+                            <LinkRouter to="/mycalls">Consultar Chamado</LinkRouter>
                         </NavItem>
                     </Menu>
                     <NavBtn>

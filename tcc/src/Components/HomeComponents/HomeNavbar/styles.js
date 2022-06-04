@@ -126,3 +126,21 @@ export const NavBtnLink = styled(LinkR)`
         color: #393E46;
     }
 `;
+
+export const LinkRouter = styled(LinkR)`
+    color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 3px solid #088080;
+    }
+
+    &:hover {
+        color: #0FCFCF;
+    }
+`;

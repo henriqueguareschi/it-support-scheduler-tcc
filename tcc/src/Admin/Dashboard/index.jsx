@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <Cards>
                         <LeftDiv>
                             <h5>Pendentes</h5>
-                            <h6>{calls.filter(c => c.status === "pendente").length}</h6>
+                            <h6>{calls.filter(c => c.status === "Pendente").length}</h6>
                         </LeftDiv>
                         <RightDiv>
                             <PendingIcon />
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     <Cards>
                         <LeftDiv>
                             <h5>Em Atendimento</h5>
-                            <h6>{calls.filter(c => c.status === "em atendimento").length}</h6>
+                            <h6>{calls.filter(c => c.status === "Em atendimento").length}</h6>
                         </LeftDiv>
                         <RightDiv>
                             <DirectionsRunIcon />
@@ -56,7 +56,7 @@ const Dashboard = () => {
                     <Cards>
                         <LeftDiv>
                             <h5>Cancelados</h5>
-                            <h6>{calls.filter(c => c.status === "cancelado").length}</h6>
+                            <h6>{calls.filter(c => c.status === "Cancelado").length}</h6>
                         </LeftDiv>
                         <RightDiv>
                             <HighlightOffIcon />
@@ -68,7 +68,7 @@ const Dashboard = () => {
                     <Cards>
                         <LeftDiv>
                             <h5>Concluídos</h5>
-                            <h6>{calls.filter(c => c.status === "finalizado").length}</h6>
+                            <h6>{calls.filter(c => c.status === "Finalizado").length}</h6>
                         </LeftDiv>
                         <RightDiv>
                             <HighlightOffIcon />

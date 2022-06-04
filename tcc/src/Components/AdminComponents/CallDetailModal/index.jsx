@@ -34,21 +34,21 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
 
     const handleStatusChange = async (id, statusType) => {
         const callDoc = doc(db, "chamados", id)
-        if (statusType === "em atendimento") {
-            const statusField = { status: "em atendimento" }
+        if (statusType === "Em atendimento") {
+            const statusField = { status: "Em atendimento" }
             await updateDoc(callDoc, statusField)
             setToAttSuccess(true)
         }
-        if (statusType === "cancelado") {
-            const statusField = { status: "cancelado" }
+        if (statusType === "Cancelado") {
+            const statusField = { status: "Cancelado" }
             await updateDoc(callDoc, statusField)
             setCanceledSuccess(true)
         }
-        if (statusType === "finalizado") {
+        if (statusType === "Finalizado") {
             if (!callReport) {
                 setFinishError(true)
             } else {
-                const statusField = { status: "finalizado" }
+                const statusField = { status: "Finalizado" }
                 await updateDoc(callDoc, statusField)
                 setFinishSuccess(true)
             }
@@ -77,7 +77,7 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                                 <Line>Endereço: {capitalizeFirstLetter(c.clientes.endereco)}</Line>
                                 <Line>Bairro: {capitalizeFirstLetter(c.clientes.bairro)}</Line>
                                 <Line>Forma de Atendimento: {capitalizeFirstLetter(c.forma_atendimento)}</Line>
-                                {c.forma_atendimento === "remoto" ?
+                                {c.forma_atendimento === "Remoto" ?
                                     <Line>Software: {capitalizeFirstLetter(c.software)}</Line>
                                     : null}
                             </Col1>
@@ -97,19 +97,19 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     </ModalBody>
                     <ModalFooter>
                         <LeftButtons>
-                            {c.status === "cancelado" ? null :
+                            {c.status === "Cancelado" ? null :
                                 <Tooltip arrow top title="Cancelar chamado">
-                                    <HighlightOffIcon onClick={() => handleStatusChange(c.id, "cancelado")} />
+                                    <HighlightOffIcon onClick={() => handleStatusChange(c.id, "Cancelado")} />
                                 </Tooltip>
                             }
-                            {c.status === "em atendimento" ? null :
+                            {c.status === "Em atendimento" ? null :
                                 <Tooltip arrow title="Mover para 'Em Atendimento'">
-                                    <DirectionsRunIcon onClick={() => handleStatusChange(c.id, "em atendimento")} />
+                                    <DirectionsRunIcon onClick={() => handleStatusChange(c.id, "Em atendimento")} />
                                 </Tooltip>
                             }
-                            {c.status === "finalizado" ? null :
+                            {c.status === "Finalizado" ? null :
                                 <Tooltip arrow title="Finalizar chamado">
-                                    <CheckCircleOutlineIcon onClick={() => handleStatusChange(c.id, "finalizado")} />
+                                    <CheckCircleOutlineIcon onClick={() => handleStatusChange(c.id, "Finalizado")} />
                                 </Tooltip>
                             }
                         </LeftButtons>
