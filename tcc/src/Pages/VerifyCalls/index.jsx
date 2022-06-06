@@ -8,13 +8,13 @@ import React from 'react'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 import MyCallImg from '../../Assets/help.svg'
+import VerifyCallModal from '../../Components/HomeComponents/VerifyCallModal';
 
 
 const VerifyCalls = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [email, setEmail] = React.useState("")
     const [calls, setCalls] = React.useState([])
-    const [verifiedCalls, setVerifiedCalls] = React.useState([])
     const [noResults, setNoResults] = React.useState(false)
 
     const toggle = () => {
@@ -25,13 +25,12 @@ const VerifyCalls = () => {
 
     const VerifyCall = async (email) => {
         const data = await getDocs(callsCollectionRef)
-        setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-        setVerifiedCalls(calls.filter(c => c.clientes.email === email))
+        setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(c => c.clientes.email === email))
         setNoResults(false)
-        if (verifiedCalls.length === 0) {
+        if (calls.length === 0) {
             setNoResults(true)
         }
-        console.log(verifiedCalls)
+        console.log(calls)
     }
 
     return (
@@ -57,7 +56,7 @@ const VerifyCalls = () => {
                     {noResults && <Alert severity="error" className='alert'>Não há chamados relacionados a este e-email!</Alert>}
                 </FormDiv>
                 <TableDiv>
-                    {verifiedCalls.length > 0 ?
+                    {calls.length > 0 ?
                         <Table striped bordered hover variant="dark">
                             <thead>
                                 <tr>
@@ -66,12 +65,12 @@ const VerifyCalls = () => {
                                     <th></th>
                                 </tr>
                             </thead>
-                            {verifiedCalls.map(c => (
+                            {calls.map(c => (
                                 <tbody key={c.id}>
                                     <tr>
                                         <td>{c.data}</td>
                                         <td>{c.status}</td>
-                                        <td></td>
+                                        <td style={{ textAlign: 'center' }}><VerifyCallModal c={c} /></td>
                                     </tr>
                                 </tbody>
                             ))}

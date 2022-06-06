@@ -86,7 +86,7 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                                     <Form.Label>Descrição do problema</Form.Label>
                                     <Form.Control as="textarea" rows={5} value={c.descricao} disabled />
                                 </Form.Group>
-                                <Form.Group controlId="problemDesc">
+                                <Form.Group controlId="report">
                                     <Form.Label>Relatório Técnico</Form.Label>
                                     <Form.Control as="textarea" rows={5} placeholder="Insira aqui a descrição do serviço realizado." value={callReport} onChange={e => setCallReport(e.target.value)} />
                                 </Form.Group>
