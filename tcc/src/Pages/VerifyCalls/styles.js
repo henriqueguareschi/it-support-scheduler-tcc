@@ -73,6 +73,7 @@ export const TableDiv = styled.div`
     max-height: 80%;
     margin: 0 auto;
     overflow-y: auto;
+    text-align: center;
 
     ::-webkit-scrollbar {
             width: 8px;

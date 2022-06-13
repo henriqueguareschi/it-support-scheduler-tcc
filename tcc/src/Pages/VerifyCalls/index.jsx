@@ -15,7 +15,7 @@ const VerifyCalls = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [email, setEmail] = React.useState("")
     const [calls, setCalls] = React.useState([])
-    const [noResults, setNoResults] = React.useState(false)
+    const [searching, setSearching] = React.useState(false)
 
     const toggle = () => {
         setIsOpen(!isOpen)
@@ -26,10 +26,7 @@ const VerifyCalls = () => {
     const VerifyCall = async (email) => {
         const data = await getDocs(callsCollectionRef)
         setCalls(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(c => c.clientes.email === email))
-        setNoResults(false)
-        if (calls.length === 0) {
-            setNoResults(true)
-        }
+        setSearching(true)
         console.log(calls)
     }
 
@@ -53,7 +50,7 @@ const VerifyCalls = () => {
                             Consultar
                         </Button>
                     </Form>
-                    {noResults && <Alert severity="error" className='alert'>Não há chamados relacionados a este e-email!</Alert>}
+                    {calls.length === 0 && searching && <Alert severity="error" className='alert'>Não há chamados relacionados a este e-email!</Alert>}
                 </FormDiv>
                 <TableDiv>
                     {calls.length > 0 ?
@@ -62,7 +59,7 @@ const VerifyCalls = () => {
                                 <tr>
                                     <th>Data</th>
                                     <th>Status</th>
-                                    <th></th>
+                                    <th>Detalhes</th>
                                 </tr>
                             </thead>
                             {calls.map(c => (
@@ -70,7 +67,7 @@ const VerifyCalls = () => {
                                     <tr>
                                         <td>{c.data}</td>
                                         <td>{c.status}</td>
-                                        <td style={{ textAlign: 'center' }}><VerifyCallModal c={c} /></td>
+                                        <td><VerifyCallModal c={c} /></td>
                                     </tr>
                                 </tbody>
                             ))}

@@ -77,6 +77,10 @@ export const GraphicArea = styled.div`
     height: 26.25rem;
     border-radius: 10px;
     border-bottom: 2px solid #088080;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 30px;
 `;
 
 export const LeftDiv = styled.div`
