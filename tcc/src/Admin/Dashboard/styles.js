@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     margin: 0px auto;
     width: 95%;
-    height: 90%;
+    height: 80%;
 
     @media(max-width: 768px) {
         height: 90%;
@@ -15,11 +15,17 @@ export const Container = styled.div`
 export const Content = styled.div`
     display: flex;
     height: 100%;
+
+    @media(max-width: 480px) {
+        flex-direction: column;
+    }
+
 `;
 
 export const Welcome = styled.div`
     width: 100%;
     height: 80px;
+    padding: 50px;
     margin: 20px auto;
     margin-bottom: 0;
     background-color: #088080;
@@ -53,6 +59,11 @@ export const CardContainer = styled.div`
     width: 40%;
     height: 85%;
     margin-right: 20px;
+
+    @media(max-width: 768px) {
+        width: 100%;
+        font-size: 16px;
+    }
 `;
 
 export const Cards = styled.div`
@@ -69,6 +80,11 @@ export const Cards = styled.div`
 
 export const GraphicContainer = styled.div`
     width: 60%;
+
+    @media(max-width: 480px) {
+        flex-direction: column;
+        width: 100%;
+    }
     
 `;
 
@@ -95,6 +111,18 @@ export const LeftDiv = styled.div`
     > h6 {
         font-weight: bold;
     }
+
+    @media(max-width: 900px) {
+        margin: 20px;
+
+        > h5, h6 {
+            font-size: 18px;
+        }
+    
+        > h6 {
+            font-weight: bold;
+        }
+    }
 `;
 
 export const RightDiv = styled.div`
@@ -104,4 +132,5 @@ export const RightDiv = styled.div`
     > svg {
         font-size: 80px;
     }
+
 `;

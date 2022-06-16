@@ -71,23 +71,21 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                     <ModalBody>
                         <Content>
                             <Col1>
-                                <Line>Nome do Cliente: {capitalizeFirstLetter(c.clientes.nome)}</Line>
-                                <Line>E-mail: {capitalizeFirstLetter(c.clientes.email)}</Line>
-                                <Line>Telefone: {capitalizeFirstLetter(c.clientes.telefone)}</Line>
-                                <Line>Endereço: {capitalizeFirstLetter(c.clientes.endereco)}</Line>
-                                <Line>Bairro: {capitalizeFirstLetter(c.clientes.bairro)}</Line>
-                                <Line>Forma de Atendimento: {capitalizeFirstLetter(c.forma_atendimento)}</Line>
-                                {c.forma_atendimento === "Remoto" ?
-                                    <Line>Software: {capitalizeFirstLetter(c.software)}</Line>
-                                    : null}
+                                <Line><b>Nome do Cliente:</b><br /> {capitalizeFirstLetter(c.clientes.nome)}</Line>
+                                <Line><b>E-mail:</b><br /> {capitalizeFirstLetter(c.clientes.email)}</Line>
+                                <Line><b>Telefone:</b><br /> {capitalizeFirstLetter(c.clientes.telefone)}</Line>
+                                <Line><b>Endereço:</b><br /> {capitalizeFirstLetter(c.clientes.endereco)}</Line>
+                                <Line><b>Bairro:</b><br /> {capitalizeFirstLetter(c.clientes.bairro)}</Line>
+
                             </Col1>
                             <Col2>
-                                <Form.Group controlId="problemDesc">
-                                    <Form.Label>Descrição do problema</Form.Label>
-                                    <Form.Control as="textarea" rows={5} value={c.descricao} disabled />
-                                </Form.Group>
+                                <Line><b>Forma de Atendimento:</b><br /> {capitalizeFirstLetter(c.forma_atendimento)}</Line>
+                                {c.forma_atendimento === "Remoto" ?
+                                    <Line><b>Software:</b><br /> {capitalizeFirstLetter(c.software)}</Line>
+                                    : null}
+                                <Line><b>Descrição do problema:</b><br /> {capitalizeFirstLetter(c.descricao)}</Line>
                                 <Form.Group controlId="report">
-                                    <Form.Label>Relatório Técnico</Form.Label>
+                                    <Form.Label><b>Relatório Técnico:</b></Form.Label>
                                     <Form.Control as="textarea" rows={5} placeholder="Insira aqui a descrição do serviço realizado." value={callReport} onChange={e => setCallReport(e.target.value)} />
                                 </Form.Group>
                             </Col2>

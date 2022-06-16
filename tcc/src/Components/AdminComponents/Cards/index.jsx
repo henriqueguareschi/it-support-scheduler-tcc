@@ -1,7 +1,6 @@
 import { Container, CardArea, ButtonsDiv, CallType, CallDesc, DateDiv } from './styles'
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import SettingsIcon from '@mui/icons-material/Settings';
 import { Tooltip } from '@mui/material';
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
@@ -10,6 +9,7 @@ import CallDetailModal from '../CallDetailModal';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Snackbar } from '@material-ui/core';
 import { Alert } from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const Cards = ({ calls, getCalls, onSearch }) => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -65,7 +65,7 @@ const Cards = ({ calls, getCalls, onSearch }) => {
                             </Card.Body>
                             <Card.Footer>
                                 <ButtonsDiv>
-                                    <Button variant="primary" onClick={() => toggle(call.id, call.relatorio)}><SettingsIcon /></Button>
+                                    <Button variant="primary" onClick={() => toggle(call.id, call.relatorio)}><InfoOutlinedIcon /></Button>
                                     <Tooltip title="Copiar link do WhatsApp do cliente" arrow>
                                         <Button className='btnWhats' onClick={() => copyLink(call.clientes.telefone)}>
                                             <WhatsAppIcon />

@@ -84,6 +84,6 @@ export const TableDiv = styled.div`
     }
 
   @media(max-width: 768px) {
-    margin-left: 40px;
+    width: 100%;
   }
 `;

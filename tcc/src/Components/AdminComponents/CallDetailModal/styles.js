@@ -26,7 +26,11 @@ export const CustomModal = styled(Modal)`
     }
 
     .modal-lg {
-        max-width: 70%;
+        max-width: 50%;
+
+        @media(max-width: 1400px) {
+            max-width: 60%;
+        }
     }
 
     .form-control {
@@ -59,7 +63,7 @@ export const Col2 = styled.div`
 `;
 
 export const Line = styled.span`
-    padding: 5px;
+    padding-bottom: 2px;
 `;
 
 export const LeftButtons = styled.div`
@@ -73,7 +77,7 @@ export const LeftButtons = styled.div`
     }
 
     > svg:hover {
-        color: #088080;
+        color: #1cd6d6;
         transition: all 0.2s ease-in-out;
     }
 `;

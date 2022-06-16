@@ -9,6 +9,11 @@ export const Container = styled.div`
         width: 90%;
         margin: 0 auto;
     }
+
+    @media(max-width: 480px) {
+        height: 780px;
+        margin: 0 auto;
+    }
 `;
 
 
