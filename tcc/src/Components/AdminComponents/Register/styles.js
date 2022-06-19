@@ -63,8 +63,8 @@ export const FormDiv = styled.div`
 export const TableDiv = styled.div`
   width: 60%;
   max-height: 80%;
-  margin: 0 auto;
-  overflow-y: auto;
+  margin: 0 auto;  
+  overflow: auto;
 
     ::-webkit-scrollbar {
             width: 8px;
@@ -85,5 +85,6 @@ export const TableDiv = styled.div`
 
   @media(max-width: 768px) {
     width: 100%;
+
   }
 `;

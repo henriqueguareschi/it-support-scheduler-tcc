@@ -97,6 +97,12 @@ export const GraphicArea = styled.div`
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 30px;
+
+    @media(max-width: 900px) {
+        > h5 {
+            font-size: 15px;
+        }
+    }
 `;
 
 export const LeftDiv = styled.div`

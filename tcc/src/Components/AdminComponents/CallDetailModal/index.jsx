@@ -1,4 +1,4 @@
-import { CustomModal, Content, Line, Col1, Col2, LeftButtons, RightButtons } from './styles'
+import { CustomModal, Content, Line, Col, Col2, LeftButtons, RightButtons } from './styles'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { ModalBody, ModalFooter, ModalHeader } from 'react-bootstrap'
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
@@ -65,20 +65,20 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
         <CustomModal show={isOpen} centered size="lg" >
             {calls.filter(c => c.id === selectedCall).map(c => (
                 <React.Fragment key={c.id}>
-                    <ModalHeader >
+                    <ModalHeader>
                         <h5>Detalhes do Chamado</h5>
                     </ModalHeader>
                     <ModalBody>
                         <Content>
-                            <Col1>
+                            <Col>
                                 <Line><b>Nome do Cliente:</b><br /> {capitalizeFirstLetter(c.clientes.nome)}</Line>
                                 <Line><b>E-mail:</b><br /> {capitalizeFirstLetter(c.clientes.email)}</Line>
                                 <Line><b>Telefone:</b><br /> {capitalizeFirstLetter(c.clientes.telefone)}</Line>
                                 <Line><b>Endereço:</b><br /> {capitalizeFirstLetter(c.clientes.endereco)}</Line>
                                 <Line><b>Bairro:</b><br /> {capitalizeFirstLetter(c.clientes.bairro)}</Line>
 
-                            </Col1>
-                            <Col2>
+                            </Col>
+                            <Col>
                                 <Line><b>Forma de Atendimento:</b><br /> {capitalizeFirstLetter(c.forma_atendimento)}</Line>
                                 {c.forma_atendimento === "Remoto" ?
                                     <Line><b>Software:</b><br /> {capitalizeFirstLetter(c.software)}</Line>
@@ -88,9 +88,7 @@ const CallDetailModal = ({ isOpen, selectedCall, calls, toggle, callReport, setC
                                     <Form.Label><b>Relatório Técnico:</b></Form.Label>
                                     <Form.Control as="textarea" rows={5} placeholder="Insira aqui a descrição do serviço realizado." value={callReport} onChange={e => setCallReport(e.target.value)} />
                                 </Form.Group>
-                            </Col2>
-
-
+                            </Col>
                         </Content>
                     </ModalBody>
                     <ModalFooter>

@@ -94,4 +94,12 @@ export const CallsHeader = styled.div`
             width: 40%;
         }
     }
+
+    .input-group-text {
+        @media(max-width: 480px) {
+            display: none;
+        }
+    }
+
+    
 `;

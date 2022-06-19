@@ -8,28 +8,53 @@ export const CustomModal = styled(Modal)`
         border: 0;
         color: #EEEEEE;
         height: 80%;
+
+        @media(max-width: 480px) {
+            margin-top: 30px;
+        }
     }
     
     .modal-title {
         font-size: 18px;
         font-weight: bold;
+
+        @media(max-width: 480px) {
+            font-size: 15px;
+        }
     }    
 
     .modal-header{
         border-color: rgba(0, 0, 0, 0.125);
+
+        @media(max-width: 480px) {
+            max-height: 20px;
+        }        
     }
 
     .modal-footer{
         border-color: rgba(0, 0, 0, 0.125);
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 480px) {
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .modal-lg {
         max-width: 50%;
 
+        @media(max-width: 780px) {
+            max-width: 90%;
+        }
+
         @media(max-width: 1400px) {
             max-width: 60%;
+        }
+
+        @media(max-width: 480px) {
+            max-width: 100%;
         }
     }
 
@@ -47,17 +72,15 @@ export const Content = styled.div`
     @media(max-width: 600px) {
         grid-template-columns: 1fr;
     }
-`;
 
-export const Col1 = styled.div`
-    margin-top: 10px;
-    grid-area: 'col1';
+    @media(max-width: 480px) {
     display: flex;
     flex-direction: column;
+  }
 `;
 
-export const Col2 = styled.div`
-    grid-area: 'col2';
+export const Col = styled.div`
+    grid-area: 'col1';
     display: flex;
     flex-direction: column;
 `;
@@ -80,6 +103,11 @@ export const LeftButtons = styled.div`
         color: #1cd6d6;
         transition: all 0.2s ease-in-out;
     }
+
+    @media(max-width: 480px) {
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 export const RightButtons = styled.div`
@@ -88,5 +116,13 @@ export const RightButtons = styled.div`
 
     > button {
         margin-left: 20px;
+    }
+
+    @media(max-width: 480px) {
+        
+
+        > button {
+            margin-left: 5px;
+        }
     }
 `;
