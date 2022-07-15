@@ -1,4 +1,4 @@
-import { Container, Wrapper, Row, Column1, Column2, H1, BtnWrapper } from './styles'
+import { Container, Wrapper, Row, Col1, Col2, H1, BtnWrapper } from './styles'
 import { collection, addDoc } from 'firebase/firestore'
 import PhoneInput from 'react-phone-number-input/input'
 import { Button } from '../../../styles/Button'
@@ -69,7 +69,7 @@ const RequestCall = () => {
             <Wrapper>
                 <H1>Solicite um atendimento</H1>
                 <Row>
-                    <Column1>
+                    <Col1>
                         <Form>
                             <Form.Group className="callForm" controlId="attType">
                                 <Form.Label>Forma de atendimento</Form.Label>
@@ -94,8 +94,8 @@ const RequestCall = () => {
                                 <Form.Control as="textarea" rows={5} placeholder="Descreva brevemente o problema que está enfrentando" value={problemDesc} onChange={(e) => setProblemDesc(e.target.value)} />
                             </Form.Group>
                         </Form>
-                    </Column1>
-                    <Column2>
+                    </Col1>
+                    <Col2>
                         <Form.Group className="callForm" controlId="clientName">
                             <Form.Label>Nome</Form.Label>
                             <Form.Control type="text" placeholder="Seu nome completo" value={clientName} onChange={(e) => setClientName(e.target.value)} />
@@ -119,7 +119,7 @@ const RequestCall = () => {
                         <BtnWrapper>
                             <Button primary="true" dark="true" onClick={createCall}>Solicitar Atendimento</Button>
                         </BtnWrapper>
-                    </Column2>
+                    </Col2>
                 </Row>
             </Wrapper>
 

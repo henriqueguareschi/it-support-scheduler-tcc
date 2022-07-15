@@ -1,5 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import { Nav, Logo, NavbarContainer, MobileIcon, Menu, NavItem, NavLinks, NavBtn, NavBtnLink, LinkRouter } from './styles'
+import { Nav, Logo, Container, IconMobile, Menu, Item, NLinks, NavBtn, NBtnLink, RouterLink } from './styles'
 import { animateScroll as scroll } from 'react-scroll'
 
 function HomeNavbar({ toggle }) {
@@ -11,35 +11,35 @@ function HomeNavbar({ toggle }) {
     return (
         <>
             <Nav>
-                <NavbarContainer>
+                <Container>
                     <Logo to="/" onClick={toggleHome}>HG</Logo>
-                    <MobileIcon onClick={toggle}>
+                    <IconMobile onClick={toggle}>
                         <MenuIcon />
-                    </MobileIcon>
+                    </IconMobile>
                     <Menu>
-                        <NavItem>
-                            <NavLinks to="about">Sobre Nós</NavLinks>
-                        </NavItem>
+                        <Item>
+                            <NLinks to="about">Sobre Nós</NLinks>
+                        </Item>
                     </Menu>
                     <Menu>
-                        <NavItem>
-                            <NavLinks to="services">Serviços</NavLinks>
-                        </NavItem>
+                        <Item>
+                            <NLinks to="services">Serviços</NLinks>
+                        </Item>
                     </Menu>
                     <Menu>
-                        <NavItem>
-                            <NavLinks to="call">Solicitar Chamado</NavLinks>
-                        </NavItem>
+                        <Item>
+                            <NLinks to="call">Solicitar Chamado</NLinks>
+                        </Item>
                     </Menu>
                     <Menu>
-                        <NavItem>
-                            <LinkRouter to="/mycalls">Consultar Chamado</LinkRouter>
-                        </NavItem>
+                        <Item>
+                            <RouterLink to="/mycalls">Consultar Chamado</RouterLink>
+                        </Item>
                     </Menu>
                     <NavBtn>
-                        <NavBtnLink to="/login">Área Técnica</NavBtnLink>
+                        <NBtnLink to="/login">Área Técnica</NBtnLink>
                     </NavBtn>
-                </NavbarContainer>
+                </Container>
             </Nav>
         </>
     )

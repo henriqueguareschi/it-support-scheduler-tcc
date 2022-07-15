@@ -46,7 +46,7 @@ export const Menu = styled.ul`
     }
 `;
 
-export const SidebarLink = styled(LinkS)`
+export const SideLink = styled(LinkS)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,12 +63,12 @@ export const SidebarLink = styled(LinkS)`
     }
 `;
 
-export const SideBtnWrap = styled.div`
+export const BtnWrap = styled.div`
     display: flex;
     justify-content: center;
 `;
 
-export const SidebarRoute = styled(LinkR)`
+export const SideRoute = styled(LinkR)`
     border-radius: 50px;
     background-color: #088080;
     white-space: nowrap;

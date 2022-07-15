@@ -24,7 +24,7 @@ export const Container = styled.div`
     }
 `;
 
-export const HeroBg = styled.div`
+export const Background = styled.div`
     position: absolute;
     top: 0;
     right: 0;
@@ -44,7 +44,7 @@ export const ImgBg = styled.img`
     opacity: 0.6;
 `;
 
-export const HeroContent = styled.div`
+export const Content = styled.div`
     z-index: 3;
     max-width: 1200px;
     position: absolute;

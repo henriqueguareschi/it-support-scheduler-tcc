@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Icon, ClosedIcon, Wrapper, Menu, SidebarLink, SideBtnWrap, SidebarRoute } from './styles'
+import { Container, Icon, ClosedIcon, Wrapper, Menu, SideLink, BtnWrap, SideRoute } from './styles'
 
 const HomeSidebar = ({ isOpen, toggle }) => {
 
@@ -10,19 +10,19 @@ const HomeSidebar = ({ isOpen, toggle }) => {
             </Icon>
             <Wrapper>
                 <Menu>
-                    <SidebarLink to="about" onClick={toggle}>
+                    <SideLink to="about" onClick={toggle}>
                         Sobre Nós
-                    </SidebarLink>
-                    <SidebarLink to="services" onClick={toggle}>
+                    </SideLink>
+                    <SideLink to="services" onClick={toggle}>
                         Serviços
-                    </SidebarLink>
-                    <SidebarLink to="call" onClick={toggle}>
+                    </SideLink>
+                    <SideLink to="call" onClick={toggle}>
                         Solicitar Chamado
-                    </SidebarLink>
+                    </SideLink>
                 </Menu>
-                <SideBtnWrap>
-                    <SidebarRoute to='/login' >Área Técnica</SidebarRoute>
-                </SideBtnWrap>
+                <BtnWrap>
+                    <SideRoute to='/login' >Área Técnica</SideRoute>
+                </BtnWrap>
             </Wrapper>
         </Container>
     )

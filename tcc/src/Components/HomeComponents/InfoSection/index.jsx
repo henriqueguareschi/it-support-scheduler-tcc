@@ -2,10 +2,10 @@ import React from 'react'
 import { Button } from '../../../styles/Button'
 import {
     Container,
-    InfoWrapper,
-    InfoRow,
-    Column1,
-    Column2,
+    Wrapper,
+    Row,
+    Col1,
+    Col2,
     TextWrapper,
     TopLine,
     Heading,
@@ -19,9 +19,9 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, dark
     return (
         <>
             <Container lightBg={lightBg} id={id}>
-                <InfoWrapper>
-                    <InfoRow imgStart={imgStart}>
-                        <Column1>
+                <Wrapper>
+                    <Row imgStart={imgStart}>
+                        <Col1>
                             <TextWrapper>
                                 <TopLine>{topLine}</TopLine>
                                 <Heading lightText={lightText}>{headline}</Heading>
@@ -33,14 +33,14 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, dark
                                     >{btnLabel}</Button>
                                 </BtnWrap>
                             </TextWrapper>
-                        </Column1>
-                        <Column2>
+                        </Col1>
+                        <Col2>
                             <ImgWrap>
                                 <Img src={img} alt={alt} />
                             </ImgWrap>
-                        </Column2>
-                    </InfoRow>
-                </InfoWrapper>
+                        </Col2>
+                    </Row>
+                </Wrapper>
             </Container>
         </>
     )

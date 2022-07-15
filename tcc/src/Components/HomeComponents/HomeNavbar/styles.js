@@ -19,7 +19,7 @@ export const Nav = styled.nav`
     }
 `;
 
-export const NavbarContainer = styled.div`
+export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -45,7 +45,7 @@ export const Logo = styled(LinkR)`
     }
 `;
 
-export const MobileIcon = styled.div`
+export const IconMobile = styled.div`
     display: none;
     color: #EEEEEE;
     margin-top: -12px;
@@ -74,11 +74,11 @@ export const Menu = styled.ul`
     }
 `;
 
-export const NavItem = styled.li`
+export const Item = styled.li`
     height: 80px;
 `;
 
-export const NavLinks = styled(LinkS)`
+export const NLinks = styled(LinkS)`
     color: #EEEEEE;
     display: flex;
     align-items: center;
@@ -107,7 +107,7 @@ export const NavBtn = styled.nav`
     
 `;
 
-export const NavBtnLink = styled(LinkR)`
+export const NBtnLink = styled(LinkR)`
     border-radius: 50px;
     background-color: #088080;
     white-space: nowrap;
@@ -127,7 +127,7 @@ export const NavBtnLink = styled(LinkR)`
     }
 `;
 
-export const LinkRouter = styled(LinkR)`
+export const RouterLink = styled(LinkR)`
     color: #EEEEEE;
     display: flex;
     align-items: center;
